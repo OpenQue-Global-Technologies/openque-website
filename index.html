@@ -157,18 +157,8 @@
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
 <div>
   <section data-reveal style="{{ revealStyle }};position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:#0B1120">
-    <div id="home-1-hero-video" style="position:absolute;inset:0;background:#0B1120" onDragOver="{{ onHeroDragOver }}" onDrop="{{ onHeroDrop }}">
-      <sc-if value="{{ noHeroVideo }}" hint-placeholder-val="{{ true }}">
-        <label style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;background:repeating-linear-gradient(45deg,#101a33,#101a33 12px,#0d1730 12px,#0d1730 24px);color:rgba(255,255,255,.7)">
-          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;letter-spacing:.02em">Drop or click to upload background video</span>
-          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;opacity:.6">Home/1. Hero — background videoloop.mp4</span>
-          <input type="file" accept="video/*" onChange="{{ onHeroFile }}" style="display:none">
-        </label>
-      </sc-if>
-      <video ref="{{ heroVideoRef }}" autoplay="autoplay" muted="muted" loop="loop" playsInline="{{ true }}" style="{{ heroVideoStyle }}"></video>
-      <sc-if value="{{ hasHeroVideo }}" hint-placeholder-val="{{ false }}">
-        <button onClick="{{ clearHeroVideo }}" style="position:absolute;top:12px;right:12px;z-index:3;min-height:32px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(11,17,32,.55);color:#fff;font-family:Inter,sans-serif;font-size:12px;cursor:pointer" style-hover="background:rgba(11,17,32,.85)">Replace video</button>
-      </sc-if>
+    <div id="home-1-hero-video" style="position:absolute;inset:0;background:#0B1120">
+      <video autoplay="autoplay" muted="muted" loop="loop" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:cover" src="./assets/home-1a-hero-video.mp4"></video>
     </div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,32,.55) 0%,rgba(11,17,32,.15) 38%,rgba(11,17,32,.72) 100%);pointer-events:none"></div>
     <div style="position:relative;max-width:1100px;margin:0 auto;padding:0 24px 88px;width:100%;text-align:center;pointer-events:none">
@@ -1555,32 +1545,6 @@ class Component extends DCLogic {
       rq.onerror = () => rej(rq.error);
     });
   }
-  async loadHeroVideo() {
-    try {
-      const db = await this.idb();
-      const blob = await new Promise((res, rej) => {
-        const rq = db.transaction("files", "readonly").objectStore("files").get("home-hero-video");
-        rq.onsuccess = () => res(rq.result); rq.onerror = () => rej(rq.error);
-      });
-      if (blob) this.setState({ heroVideoSrc: URL.createObjectURL(blob) });
-    } catch (e) {}
-  }
-  async saveHeroVideo(file) {
-    if (!file || file.type.indexOf("video") !== 0) return;
-    this.setState({ heroVideoSrc: URL.createObjectURL(file) });
-    try {
-      const db = await this.idb();
-      db.transaction("files", "readwrite").objectStore("files").put(file, "home-hero-video");
-    } catch (e) {}
-  }
-  async clearHero() {
-    this.setState({ heroVideoSrc: null });
-    try {
-      const db = await this.idb();
-      db.transaction("files", "readwrite").objectStore("files").delete("home-hero-video");
-    } catch (e) {}
-  }
-
   setMedia(key, blob) {
     const url = URL.createObjectURL(blob);
     const type = blob.type.indexOf("video") === 0 ? "video" : "image";
@@ -1613,7 +1577,6 @@ class Component extends DCLogic {
   }
 
   componentDidMount() {
-    this.loadHeroVideo();
     this.loadMedia("home-showcase-bg");
     this.loadMedia("home-showcase-phone");
     this.sync();
@@ -1793,22 +1756,6 @@ class Component extends DCLogic {
       toggleProduct: () => this.setState(s => ({ menu: s.menu === "product" ? null : "product" })),
       toggleResources: () => this.setState(s => ({ menu: s.menu === "resources" ? null : "resources" })),
 
-      heroVideoRef: el => {
-        this._heroVideo = el;
-        if (el) {
-          const src = this.state.heroVideoSrc;
-          if (src && el.src !== src) { el.src = src; el.play().catch(() => {}); }
-          else if (!src && el.getAttribute("src")) { el.removeAttribute("src"); }
-        }
-      },
-      heroVideoStyle: "width:100%;height:100%;object-fit:cover;display:" + (this.state.heroVideoSrc ? "block" : "none"),
-      hasHeroVideo: !!this.state.heroVideoSrc,
-      noHeroVideo: !this.state.heroVideoSrc,
-      heroVideoSrc: this.state.heroVideoSrc || "",
-      onHeroDragOver: e => { e.preventDefault(); },
-      onHeroDrop: e => { e.preventDefault(); this.saveHeroVideo(e.dataTransfer.files && e.dataTransfer.files[0]); },
-      onHeroFile: e => { this.saveHeroVideo(e.target.files && e.target.files[0]); },
-      clearHeroVideo: () => this.clearHero(),
 
       onMediaDragOver: e => { e.preventDefault(); },
       showcaseBgRef: el => { const u = (this.state.media["home-showcase-bg"] || {}).url; if (el && u && el.src !== u) el.src = u; },
