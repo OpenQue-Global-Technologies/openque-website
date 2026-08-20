@@ -1,0 +1,6 @@
+{
+  "name": "OpenQue Website",
+  "description": "Marketing site for OpenQue — queue and appointment infrastructure for Indian OPDs with patient app and hospital features.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
