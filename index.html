@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./scripts/support.js"></script>
+<script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="icon" href="./assets/openque-logo.webp">
+<link rel="icon" href="./openque-logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Tamil:wght@400;600&amp;display=swap" rel="stylesheet">
-<script src="./scripts/image-slot.js"></script>
+<script src="./image-slot.js"></script>
 <style>
   html, body { margin:0; padding:0; background:#F2F2F2; color:#1F2937; font-family:Inter, system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
   * { box-sizing:border-box; }
@@ -38,6 +38,20 @@
     #home-bento-grid { grid-template-columns:1fr !important; }
     #home-bento-grid > div { grid-column:1 / -1 !important; }
     #contact-grid { grid-template-columns:1fr !important; }
+  }
+  @media (max-width: 767px) {
+    html, body { overflow-x:hidden; }
+    #home-visibility-cards { flex-direction:column !important; gap:48px !important; padding:20px 0 !important; }
+    #home-visibility-cards h3 { font-size:22px !important; margin:20px 0 10px !important; min-height:0 !important; }
+    #home-visibility-cards p { font-size:14px !important; margin-bottom:16px !important; min-height:0 !important; }
+    #home-story-card { position:static !important; transform:none !important; width:100% !important; max-width:100% !important; padding:24px !important; min-height:0 !important; margin:0 !important; border-radius:0 !important; gap:24px !important; }
+    #home-story-section { flex-direction:column !important; height:auto !important; min-height:0 !important; padding:48px 20px !important; justify-content:flex-start !important; }
+    #home-showcase-dashboard { width:100% !important; }
+    #home-showcase-phone { width:min(96px,26%) !important; bottom:-16px !important; }
+    #about-vision-grid, #about-mission-grid { grid-template-columns:1fr !important; gap:24px !important; }
+    #about-vision-grid > div:first-child, #about-mission-grid > div:last-child { order:-1; height:220px !important; }
+    #footer-cta-banner { height:auto !important; padding:48px 0 !important; }
+    #footer-cta-banner h2 { font-size:32px !important; }
   }
   @media (max-width: 480px) {
     #how-story-grid { grid-template-columns:1fr !important; }
@@ -105,12 +119,14 @@
 <header style="position:fixed;top:20px;left:0;right:0;z-index:60;display:flex;flex-direction:column;align-items:center;padding:0 16px;pointer-events:none">
   <div style="{{ navPillStyle }}" data-nav-dropdown="1">
     <a href="#/" style="display:flex;align-items:center;gap:10px;min-height:44px">
-      <img src="./assets/openque-logo.webp" alt="OpenQue" style="height: 40px; width: 40px; object-fit: contain; display: block">
-      <span style="font-weight: 800; font-family: Playfair Display; font-size: 32px; color: #074FF8">{{ brandName }}</span>
+      <img src="./openque-logo.webp" alt="OpenQue" style="{{ headerLogoStyle }}">
+      <span style="{{ headerBrandStyle }}">{{ brandName }}</span>
     </a>
     <button onClick="{{ toggleNav }}" aria-label="Menu" aria-expanded="{{ navOpen }}" style="{{ navBurgerStyle }}">
-      <span style="{{ navBurgerBar1 }}"></span>
-      <span style="{{ navBurgerBar2 }}"></span>
+      <span style="{{ headerBurgerBoxStyle }}">
+        <span style="{{ navBurgerBar1 }}"></span>
+        <span style="{{ navBurgerBar2 }}"></span>
+      </span>
     </button>
   </div>
 
@@ -156,12 +172,12 @@
 <!-- ============ HOME ============ -->
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:#0B1120">
+  <section data-reveal="" style="{{ revealStyle }};position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#0B1120">
     <div id="home-1-hero-video" style="position:absolute;inset:0;background:#0B1120">
-      <video autoplay="autoplay" muted="muted" loop="loop" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:cover" src="./assets/home-1a-hero-video.mp4"></video>
+      <video autoplay="autoplay" muted="muted" loop="loop" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:cover" src="./home-1a-hero-video.mp4"></video>
     </div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,32,.55) 0%,rgba(11,17,32,.15) 38%,rgba(11,17,32,.72) 100%);pointer-events:none"></div>
-    <div style="position:relative;max-width:1100px;margin:0 auto;padding:0 24px 88px;width:100%;text-align:center;pointer-events:none">
+    <div style="position: relative; max-width: 1100px; margin: 0 auto; padding: 0 24px 88px; width: 100%; text-align: center; pointer-events: none; padding-bottom: 0px">
       <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:6px;background:rgba(223,255,255,.18);border:1px solid rgba(223,255,255,.35);color:#FFFFFF;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">{{ tHomeBadge }}</div>
       <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(36px,5.6vw,72px);line-height:1.04;color:#fff;margin:24px 0 20px;letter-spacing:-.02em;text-wrap:balance">{{ tHeroH1 }}</h1>
       <p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,.86); margin: 0 auto 32px; text-wrap: pretty; width: min(820px,100%)">{{ tHeroSub }}</p>
@@ -176,26 +192,26 @@
   
 
 
-  <section data-reveal style="{{ revealStyle }};padding:128px 0;background:#F2F2F2">
+  <section data-reveal="" style="{{ revealStyle }};padding:128px 0;background:#F2F2F2">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px">
-      <div style="max-width:720px;margin:0 auto 88px;text-align:center">
-        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#074FF8;font-weight:600;margin-bottom:14px">{{ tHomeEyebrow1 }}</div>
+      <div style="max-width: 720px; margin: 0 auto 88px; text-align: center; margin-bottom: 16px; padding-top: 0px; padding-left: 0px; padding-right: 0px">
+        <div style="font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #074FF8; font-weight: 600; margin-bottom: 32px">{{ tHomeEyebrow1 }}</div>
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4.2vw,52px);line-height:1.08;margin:0 0 18px;color:#1F2937;letter-spacing:-.02em;text-wrap:balance">{{ tHomeH2_1 }}</h2>
         <p style="font-size:16px;line-height:1.7;color:#6B7280;margin:0 auto;max-width:560px;text-wrap:pretty">{{ tHomeP1 }}</p>
       </div><div id="home-showcase-row" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 0px; max-width: 1080px; margin: 0 auto; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px">
         
         <div id="home-showcase-col" style="flex: 0 1 700px; display: flex; flex-direction: column; align-items: center; text-align: center; min-height: 750px; height: auto">
-          <div style="position: relative; width: 100%; max-width: 700px; height: 500px; display: flex; align-items: center; justify-content: center; gap: 0px; top: 0px; margin-top: 28px; margin-right: 28px; margin-bottom: 28px; margin-left: 28px">
-            <div style="width: min(700px,90%); background: #1F2937; border-radius: 14px; padding: 6px 6px 0; box-shadow: 0 30px 60px rgba(31,41,55,.18)">
-              <div style="width:100%;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:url(&quot;./assets/home-2a-showcase-laptop.webp&quot;) center / cover no-repeat"></div>
+          <div style="position: relative; width: 100%; max-width: 700px; height: 500px; display: flex; align-items: center; justify-content: center; gap: 0px; top: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px">
+            <div id="home-showcase-dashboard" style="width: min(700px,90%); background: #1F2937; border-radius: 14px; padding: 6px 6px 0; box-shadow: 0 30px 60px rgba(31,41,55,.18)">
+              <div style="width:100%;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:{{ bg_home_2a_showcase_laptop }}"></div>
             </div>
             
-            <div style="position: absolute; right: 6px; bottom: -29px; width: min(180px,22%); background: #1F2937; border-radius: 22px; padding: 4px; box-shadow: 0 20px 40px rgba(31,41,55,.22)">
-              <div style="width:100%;aspect-ratio:9/19;border-radius:18px;overflow:hidden;background:url(&quot;./assets/home-2b-showcase-phone.webp&quot;) center / cover no-repeat"></div>
+            <div id="home-showcase-phone" style="position: absolute; right: 6px; bottom: -29px; width: min(180px,22%); background: #1F2937; border-radius: 22px; padding: 4px; box-shadow: 0 20px 40px rgba(31,41,55,.22)">
+              <div style="width:100%;aspect-ratio:9/19;border-radius:18px;overflow:hidden;background:{{ bg_home_2b_showcase_phone }}"></div>
             </div>
           </div>
           
-          <div style="box-sizing: border-box; display: flex; flex-direction: row; gap: 120px 80px; justify-content: center; align-items: flex-start; padding-top: 40px; padding-right: 40px; padding-bottom: 40px; padding-left: 40px; margin-top: 28px; margin-right: 28px; margin-bottom: 28px; margin-left: 28px"><div style="flex:0 1 290px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div id="home-visibility-cards" style="box-sizing: border-box; display: flex; flex-direction: row; gap: 120px 80px; justify-content: center; align-items: flex-start; padding-top: 28px; padding-right: 28px; padding-bottom: 28px; padding-left: 28px; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px"><div style="flex:0 1 290px;display:flex;flex-direction:column;align-items:center;text-align:center">
           
           <h3 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: clamp(22px,2.4vw,30px); line-height: 1.15; margin: 32px 0 12px; min-height: 48px; display: flex; align-items: flex-start; color: #1F2937; letter-spacing: -.01em; margin-bottom: 12px">{{ tHomeCardTitle1 }}</h3>
           <p style="font-size: 15px; line-height: 1.7; color: #6B7280; margin: 0 0 24px; max-width: 400px; min-height: 48px; text-wrap: pretty">{{ tHomeCardP1 }}</p>
@@ -211,7 +227,7 @@
       </div>
       
     </div>
-  </section><section data-reveal style="{{ revealStyle }};position: relative; height: 88vh; min-height: 760px; padding: 56px 0; box-sizing: border-box; display: flex; align-items: center; justify-content: flex-end; padding-right: clamp(24px,6vw,96px); overflow: hidden; background: url(&quot;./assets/home-3a-showcase-background-msz2xlgc-c24h.png&quot;) center / cover no-repeat" onDragOver="{{ onMediaDragOver }}" onDrop="{{ onShowcaseBgDrop }}">
+  </section><section id="home-story-section" data-reveal="" style="{{ revealStyle }};position: relative; height: 88vh; min-height: 760px; padding: 56px 0; box-sizing: border-box; display: flex; align-items: center; justify-content: flex-end; padding-right: clamp(24px,6vw,96px); overflow: hidden; background: url(&quot;./home-3a-showcase-background-msz2xlgc-c24h.png&quot;) center / cover no-repeat" onDragOver="{{ onMediaDragOver }}" onDrop="{{ onShowcaseBgDrop }}">
     <sc-if value="{{ showcaseBgIsVideo }}" hint-placeholder-val="{{ false }}">
       <video ref="{{ showcaseBgRef }}" autoplay="autoplay" muted="muted" loop="loop" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
     </sc-if>
@@ -221,11 +237,11 @@
     <sc-if value="{{ showcaseBgFilled }}" hint-placeholder-val="{{ false }}">
       
     </sc-if>
-    <div style="position: absolute; inset: 0; background: linear-gradient(180deg,rgba(11,17,32,.28),rgba(11,17,32,.12) 45%,rgba(11,17,32,.42)); pointer-events: none; left: -21px; top: -13px"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg,rgba(11,17,32,.28),rgba(11,17,32,.12) 45%,rgba(11,17,32,.42)); pointer-events: none; left: -21px; top: 0px"></div>
     
       
     
-    <div style="position: absolute; left: clamp(24px,6vw,96px); top: 50%; transform: translateY(-50%); z-index: 3; width: min(440px,42vw); display: flex; flex-direction: column; gap: 40px; padding: 32px; border-radius: 24px; border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); box-shadow: 0 30px 70px rgba(11,17,32,.35); min-height: 550px; height: auto; align-self: center; padding-top: 52px; padding-right: 52px; padding-bottom: 52px; padding-left: 52px; background-color: #FFFFFF03">
+    <div id="home-story-card" style="position: absolute; left: clamp(24px,6vw,96px); top: 50%; transform: translateY(-50%); z-index: 3; width: min(440px,42vw); display: flex; flex-direction: column; gap: 40px; padding: 32px; border-radius: 24px; border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); box-shadow: 0 30px 70px rgba(11,17,32,.35); min-height: 550px; height: auto; align-self: center; padding-top: 52px; padding-right: 52px; padding-bottom: 52px; padding-left: 52px; background-color: #FFFFFF03">
       <div style="display:flex;align-items:center;gap:20px">
         <div style="flex: 0 0 auto; min-width: 62px; font-family: Inter,sans-serif; font-size: 18px; font-weight: 500; color: rgba(255,255,255,.75)">{{ tHomeStepBook }}</div>
         <div style="width:1px;align-self:stretch;background:rgba(255,255,255,.28)"></div>
@@ -264,22 +280,22 @@
 
 
 
-  <section data-reveal style="{{ revealStyle }};padding:120px 0 0;background:#F2F2F2">
-    <div style="max-width: 1080px; margin: 0 auto; padding: 0 32px; padding-top: 16px; padding-bottom: 16px">
-      <div style="max-width:640px;margin:0 auto 48px;text-align:center">
+  <section data-reveal="" style="{{ revealStyle }};padding:120px 0 0;background:#F2F2F2">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 0 32px; padding-top: 32px; padding-bottom: 32px">
+      <div style="max-width: 640px; margin: 0 auto 48px; text-align: center; padding-bottom: 32px">
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(30px,3.8vw,48px);line-height:1.1;margin:0 0 14px;color:#1F2937;letter-spacing:-.02em;text-wrap:balance">{{ tHomeH2_2 }}</h2>
         <p style="font-family:Inter,sans-serif;font-size:15px;line-height:1.7;color:#6B7280;margin:0 auto;max-width:520px;text-wrap:pretty">{{ tHomeP2 }}</p>
       </div>
-      <div id="home-bento-grid" data-reveal-group style="display: grid; grid-template-columns: repeat(10,1fr); gap: 40px">
-        <div data-reveal style="{{ revealStyle }};position:relative;grid-column:span 5;min-height:300px;border-radius:8px;overflow:hidden;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(11,17,32,.28)">
-          <div style="position:absolute;inset:0;background:url(&quot;./assets/home-4a-air-bento-checkins.webp&quot;) center / cover no-repeat"></div>
+      <div id="home-bento-grid" data-reveal-group="" style="display: grid; grid-template-columns: repeat(10,1fr); gap: 40px">
+        <div data-reveal="" style="{{ revealStyle }};position:relative;grid-column:span 5;min-height:300px;border-radius:8px;overflow:hidden;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(11,17,32,.28)">
+          <div style="position:absolute;inset:0;background:{{ bg_home_4a_air_bento_checkins }}"></div>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg,rgba(11,17,32,.72),rgba(11,17,32,.12) 55%,rgba(11,17,32,0)); pointer-events: none; top: 0px"></div>
           <div style="position: relative; padding: 26px 28px; pointer-events: none">
             <h3 style="font-family:Inter,sans-serif;font-size:19px;font-weight:600;margin:0 0 8px;color:#fff;letter-spacing:-.01em">{{ tBentoTitle1 }}</h3>
             <p style="font-family:Inter,sans-serif;font-size:13px;line-height:1.6;color:rgba(255,255,255,.82);margin:0;max-width:340px;text-wrap:pretty">{{ tBentoP1 }}</p>
           </div>
         </div>
-        <div data-reveal style="{{ revealStyle }};grid-column:span 5;min-height:300px;border-radius:8px;background:#E9E9E9;padding:26px 28px;display:flex;flex-direction:column;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 10px 24px rgba(31,41,55,.1)">
+        <div data-reveal="" style="{{ revealStyle }};grid-column:span 5;min-height:300px;border-radius:8px;background:#E9E9E9;padding:26px 28px;display:flex;flex-direction:column;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 10px 24px rgba(31,41,55,.1)">
           <h3 style="font-family:Inter,sans-serif;font-size:19px;font-weight:600;margin:0 0 8px;color:#1F2937;letter-spacing:-.01em">{{ tBentoTitle2 }}</h3>
           <p style="font-family:Inter,sans-serif;font-size:13px;line-height:1.6;color:#6B7280;margin:0;max-width:360px;text-wrap:pretty">{{ tBentoP2 }}</p>
           <div style="flex:1;display:flex;align-items:center;justify-content:center;padding-top:18px">
@@ -296,7 +312,7 @@
             </div>
           </div>
         </div>
-        <div data-reveal style="{{ revealStyle }};grid-column:span 4;min-height:300px;border-radius:8px;background:#E9E9E9;padding:26px 28px;display:flex;flex-direction:column;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 10px 24px rgba(31,41,55,.1)">
+        <div data-reveal="" style="{{ revealStyle }};grid-column:span 4;min-height:300px;border-radius:8px;background:#E9E9E9;padding:26px 28px;display:flex;flex-direction:column;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 10px 24px rgba(31,41,55,.1)">
           <h3 style="font-family:Inter,sans-serif;font-size:19px;font-weight:600;margin:0 0 8px;color:#1F2937;letter-spacing:-.01em">{{ tBentoTitle3 }}</h3>
           <p style="font-family:Inter,sans-serif;font-size:13px;line-height:1.6;color:#6B7280;margin:0;max-width:360px;text-wrap:pretty">{{ tBentoP3 }}</p>
           <div style="flex:1;display:flex;align-items:center;padding-top:20px">
@@ -310,23 +326,23 @@
             </div>
           </div>
         </div>
-        <div data-reveal style="{{ revealStyle }};position:relative;grid-column:span 6;min-height:300px;border-radius:8px;overflow:hidden;background:#1F2937;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),translate 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(11,17,32,.28)">
-          <div style="position:absolute;inset:0;background:url(&quot;./assets/home-4b-air-bento-scheduling.webp&quot;) center / cover no-repeat"></div>
+        <div data-reveal="" style="{{ revealStyle }};position:relative;grid-column:span 6;min-height:300px;border-radius:8px;overflow:hidden;background:#1F2937;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),translate 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(11,17,32,.28)">
+          <div style="position:absolute;inset:0;background:{{ bg_home_4b_air_bento_scheduling }}"></div>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg,rgba(11,17,32,.72),rgba(11,17,32,.12) 55%,rgba(11,17,32,0)); pointer-events: none; top: 0px"></div>
           <div style="position: relative; padding: 26px 28px; pointer-events: none">
             <h3 style="font-family:Inter,sans-serif;font-size:19px;font-weight:600;margin:0 0 8px;color:#fff;letter-spacing:-.01em">{{ tBentoTitle4 }}</h3>
             <p style="font-family:Inter,sans-serif;font-size:13px;line-height:1.6;color:rgba(255,255,255,.82);margin:0;max-width:340px;text-wrap:pretty">{{ tBentoP4 }}</p>
           </div>
         </div>
-        <div data-reveal style="{{ revealStyle }};position:relative;grid-column:span 6;min-height:300px;border-radius:8px;overflow:hidden;background:#1F2937;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),translate 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(11,17,32,.28)">
-          <div style="position:absolute;inset:0;background:url(&quot;./assets/home-4c-air-bento-insights.webp&quot;) center / cover no-repeat"></div>
+        <div data-reveal="" style="{{ revealStyle }};position:relative;grid-column:span 6;min-height:300px;border-radius:8px;overflow:hidden;background:#1F2937;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),translate 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(11,17,32,.28)">
+          <div style="position:absolute;inset:0;background:{{ bg_home_4c_air_bento_insights }}"></div>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg,rgba(11,17,32,.72),rgba(11,17,32,.12) 55%,rgba(11,17,32,0)); pointer-events: none; top: 0px"></div>
           <div style="position: relative; padding: 26px 28px; pointer-events: none">
             <h3 style="font-family:Inter,sans-serif;font-size:19px;font-weight:600;margin:0 0 8px;color:#fff;letter-spacing:-.01em">{{ tBentoTitle5 }}</h3>
             <p style="font-family:Inter,sans-serif;font-size:13px;line-height:1.6;color:rgba(255,255,255,.82);margin:0;max-width:340px;text-wrap:pretty">{{ tBentoP5 }}</p>
           </div>
         </div>
-        <div data-reveal style="{{ revealStyle }};grid-column:span 4;min-height:300px;border-radius:8px;background:#E9E9E9;padding:26px 28px;display:flex;flex-direction:column;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 10px 24px rgba(31,41,55,.1)">
+        <div data-reveal="" style="{{ revealStyle }};grid-column:span 4;min-height:300px;border-radius:8px;background:#E9E9E9;padding:26px 28px;display:flex;flex-direction:column;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 10px 24px rgba(31,41,55,.1)">
           <h3 style="font-family:Inter,sans-serif;font-size:19px;font-weight:600;margin:0 0 8px;color:#1F2937;letter-spacing:-.01em">{{ tBentoTitle6 }}</h3>
           <p style="font-family:Inter,sans-serif;font-size:13px;line-height:1.6;color:#6B7280;margin:0;max-width:360px;text-wrap:pretty">{{ tBentoP6 }}</p>
           <div style="flex:1;display:flex;align-items:center;justify-content:center;padding-top:18px">
@@ -344,8 +360,8 @@
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};padding:120px 0;background:#F2F2F2">
-    <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start">
+  <section data-reveal="" style="{{ revealStyle }};padding:120px 0;background:#F2F2F2">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start; padding-top: 40px; padding-bottom: 40px">
       <div style="flex:1 1 380px;min-width:0;max-width:480px">
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1.08;margin:0 0 18px;color:#1F2937;letter-spacing:-.02em;text-wrap:balance">{{ tHomeH2_3 }}</h2>
         <p style="font-family:Inter,sans-serif;font-size:15px;line-height:1.7;color:#6B7280;margin:0 0 24px;max-width:400px;text-wrap:pretty">{{ tHomeP3 }}</p>
@@ -367,7 +383,7 @@
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};position:relative;overflow:hidden">
+  <section data-reveal="" style="{{ revealStyle }};position:relative;overflow:hidden">
     <div style="position:absolute;inset:0"></div>
     
     
@@ -378,29 +394,29 @@
 <!-- ============ PRODUCT: PATIENTS ============ -->
 <sc-if value="{{ isPatients }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};padding:100px 0;background-color:#F1F1F1">
+  <section data-reveal="" style="{{ revealStyle }};padding:100px 0;background-color:#F1F1F1">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:center">
       <div>
-        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#074FF8;font-weight:600;margin-bottom:14px">{{ patEyebrow }}</div>
+        <div style="font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #074FF8; font-weight: 600; margin-bottom: 16px">{{ patEyebrow }}</div>
         <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0 0 16px;color:#1F2937;letter-spacing:-.02em">{{ patH1 }}</h1>
         <p style="font-size:17px;line-height:1.7;color:#1F2937;opacity:.75;margin:0 0 28px;text-wrap:pretty">{{ patSub }}</p>
-        <ul style="list-style:none;padding:0;margin:0 0 32px;display:grid;gap:10px">
-          <li style="display:flex;gap:12px;font-size:15px;color:#1F2937"><span style="color:#074FF8;font-weight:700">—</span><span>{{ patBullet1 }}</span></li>
-          <li style="display:flex;gap:12px;font-size:15px;color:#1F2937"><span style="color:#074FF8;font-weight:700">—</span><span>{{ patBullet2 }}</span></li>
-          <li style="display:flex;gap:12px;font-size:15px;color:#1F2937"><span style="color:#074FF8;font-weight:700">—</span><span>{{ patBullet3 }}</span></li>
-          <li style="display:flex;gap:12px;font-size:15px;color:#1F2937"><span style="color:#074FF8;font-weight:700">—</span><span>{{ patBullet4 }}</span></li>
+        <ul style="list-style: disc; padding: 0 0 0 20px; margin: 0 0 32px; display: grid; gap: 10px; color: #074FF8; margin-bottom: 40px">
+          <li style="font-size:15px;color:#1F2937"><span>{{ patBullet1 }}</span></li>
+          <li style="font-size:15px;color:#1F2937"><span>{{ patBullet2 }}</span></li>
+          <li style="font-size:15px;color:#1F2937"><span>{{ patBullet3 }}</span></li>
+          <li style="font-size:15px;color:#1F2937"><span>{{ patBullet4 }}</span></li>
         </ul>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a href="#/contact" style="display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 28px;border-radius:999px;background:#0074FF;color:#fff;font-weight:600;font-size:14px;white-space:nowrap" style-hover="filter:brightness(1.1);color:#fff">{{ patContactUs }}</a>
         </div>
       </div>
       <div style="display:flex;justify-content:center">
-        <div style="width: min(548px,100%); aspect-ratio: 548/449; border-radius: 12px; background: url(&quot;./assets/patients-hero-app.webp&quot;) center / cover no-repeat"></div>
+        <div style="width: min(548px,100%); aspect-ratio: 548/449; border-radius: 12px; background:{{ bg_patients_hero_app }}"></div>
       </div>
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};padding: 96px 0; background-color: #FFF9ED">
+  <section data-reveal="" style="padding: 96px 0; background-color: #FFFFFF">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
       <div style="max-width:640px;margin:0 auto 56px;text-align:center">
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1.15;margin:0 0 14px;color:#1F2937;letter-spacing:-.01em">{{ patH2 }}</h2>
@@ -443,38 +459,38 @@
 <div>
   
 
-  <section data-reveal style="{{ revealStyle }};padding: 72px 0 64px; background-color: #F1F1F1">
+  <section data-reveal="" style="{{ revealStyle }};padding: 72px 0 64px; background-color: #F1F1F1">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center">
-      <div>
-        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#074FF8;font-weight:600;margin-bottom:12px">{{ hospEyebrow }}</div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:100%">
+        <div style="font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #074FF8; font-weight: 600; margin-bottom: 16px">{{ hospEyebrow }}</div>
         <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0 0 16px;color:#1F2937;letter-spacing:-.02em">OpenQue AIR<br></h1>
         <p style="font-size:17px;line-height:1.7;color:#1F2937;opacity:.75;margin:0 0 28px;text-wrap:pretty">{{ hospH1Sub }}</p>
         <a href="#/contact?intent=demo" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 28px;border-radius:999px;background:linear-gradient(90deg,#074FF8,#4171F0);color:#fff;font-weight:600;font-size:14px" style-hover="filter:brightness(1.12);color:#fff">{{ tDemo }}</a>
       </div><div style="position: relative; width: 100%; max-width: 700px; height: 500px; display: flex; align-items: center; justify-content: center; gap: 0px; top: 0px; margin-top: 28px; margin-right: 28px; margin-bottom: 28px; margin-left: 28px">
             <div style="width: min(700px,90%); background: #1F2937; border-radius: 14px; padding: 6px 6px 0; box-shadow: 0 30px 60px rgba(31,41,55,.18)">
-              <div style="width:100%;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:url(&quot;./assets/home-2a-showcase-laptop.webp&quot;) center / cover no-repeat"></div>
+              <div style="width:100%;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:{{ bg_home_2a_showcase_laptop }}"></div>
             </div>
             
             
           </div>
       
     </div>
-  </section><section data-reveal style="{{ revealStyle }};padding: 72px 0; background-color: #FFFFFF">
+  </section><section data-reveal="" style="{{ revealStyle }};padding: 72px 0; background-color: #FFFFFF">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
       <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,3.2vw,36px);line-height:1.15;margin:0 0 40px;color:#1F2937">{{ hospModesH2 }}</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
         <div style="background:#fff;border:1px solid rgba(31,41,55,.08);border-radius:8px;padding:28px;transition:transform 200ms ease,box-shadow 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,41,55,.10)">
-          <div style="height: 150px; margin-bottom: 20px; background: url(&quot;./assets/hospitals-modes-solo.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
+          <div style="height: 150px; margin-bottom: 20px; background:{{ bg_hospitals_modes_solo }}; border-radius: 8px"></div>
           <h3 style="font-size:20px;font-weight:600;margin:0 0 10px;color:#1F2937">{{ hospSoloTitle }}</h3>
           <p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ hospSoloP }}</p>
         </div>
         <div style="background:#fff;border:1px solid rgba(31,41,55,.08);border-radius:8px;padding:28px;transition:transform 200ms ease,box-shadow 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,41,55,.10)">
-          <div style="height: 150px; margin-bottom: 20px; background: url(&quot;./assets/hospitals-modes-small-team.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
+          <div style="height: 150px; margin-bottom: 20px; background:{{ bg_hospitals_modes_small_team }}; border-radius: 8px"></div>
           <h3 style="font-size:20px;font-weight:600;margin:0 0 10px;color:#1F2937">{{ hospTeamTitle }}</h3>
           <p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ hospTeamP }}</p>
         </div>
         <div style="background:#fff;border:1px solid rgba(31,41,55,.08);border-radius:8px;padding:28px;transition:transform 200ms ease,box-shadow 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,41,55,.10)">
-          <div style="height: 150px; margin-bottom: 20px; background: url(&quot;./assets/hospitals-modes-full-hospital.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
+          <div style="height: 150px; margin-bottom: 20px; background:{{ bg_hospitals_modes_full_hospital }}; border-radius: 8px"></div>
           <h3 style="font-size:20px;font-weight:600;margin:0 0 10px;color:#1F2937">{{ hospFullTitle }}</h3>
           <p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ hospFullP }}</p>
         </div>
@@ -485,28 +501,28 @@
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};padding: 80px 0; background-color: #FFF9ED">
+  <section data-reveal="" style="{{ revealStyle }};padding: 80px 0; background-color: #FFF9ED">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
       <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,3.2vw,36px);line-height:1.15;margin:0 0 12px;color:#1F2937">{{ hospRoleH2 }}</h2>
       <p style="font-size:16px;line-height:1.65;color:#6B7280;margin:0 0 40px;max-width:620px">{{ hospRoleSub }}</p>
-      <div data-reveal-group style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
-          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;./assets/hospitals-role-reception.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
+      <div data-reveal-group="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
+          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background:{{ bg_hospitals_role_reception }}; width: 100%; aspect-ratio: 4/5"></div>
           <h3 style="font-size:17px;font-weight:700;margin:0 0 6px;color:#1F2937">{{ hospReceptionTitle }}</h3>
           <p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ hospReceptionP }}</p>
         </div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
-          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;./assets/hospitals-role-doctor.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
+          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background:{{ bg_hospitals_role_doctor }}; width: 100%; aspect-ratio: 4/5"></div>
           <h3 style="font-size:17px;font-weight:700;margin:0 0 6px;color:#1F2937">{{ hospDoctorsTitle }}</h3>
           <p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ hospDoctorsP }}</p>
         </div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
-          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;./assets/hospitals-role-admin.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
+          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background:{{ bg_hospitals_role_admin }}; width: 100%; aspect-ratio: 4/5"></div>
           <h3 style="font-size:17px;font-weight:700;margin:0 0 6px;color:#1F2937">{{ hospAdminTitle }}</h3>
           <p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ hospAdminP }}</p>
         </div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
-          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;./assets/hospitals-role-management.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
+          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background:{{ bg_hospitals_role_management }}; width: 100%; aspect-ratio: 4/5"></div>
           <h3 style="font-size:17px;font-weight:700;margin:0 0 6px;color:#1F2937">{{ hospMgmtTitle }}</h3>
           <p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ hospMgmtP }}</p>
         </div>
@@ -526,40 +542,40 @@
 <!-- ============ PRODUCT: HOW IT WORKS ============ -->
 <sc-if value="{{ isHow }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};padding:72px 0 40px">
+  <section data-reveal="" style="padding: 72px 0 40px; padding-bottom: 60px">
     <div style="max-width:840px;margin:0 auto;padding:0 24px">
-      <div style="font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #074FF8; font-weight: 600; margin-bottom: 12px; text-align: center">{{ howEyebrow }}</div>
+      <div style="font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #074FF8; font-weight: 600; margin-bottom: 32px; text-align: center">{{ howEyebrow }}</div>
       <h1 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: clamp(32px,4vw,48px); line-height: 1.1; margin: 0 0 16px; color: #1F2937; letter-spacing: -.02em; text-align: center">{{ howH1 }}</h1>
       <p style="font-size: 17px; line-height: 1.7; color: #6B7280; margin: 0; text-wrap: pretty; text-align: center">{{ howSub }}</p>
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};padding: 64px 0 96px; background-color: #FFF9ED">
-    <div style="max-width:1080px;margin:0 auto;padding:0 24px">
+  <section data-reveal="" style="padding: 64px 0 96px; background-color: #FFFFFF; padding-bottom: 60px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
       <div style="max-width:640px;margin:0 auto 56px;text-align:center">
-        <h2 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: clamp(28px,3.4vw,40px); line-height: 1.15; margin: 0 0 14px; color: #074FF8; letter-spacing: -.01em">{{ howStoryH2 }}</h2>
+        <h2 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: clamp(28px,3.4vw,40px); line-height: 1.15; margin: 0 0 14px; color: #074FF8; letter-spacing: -.01em; margin-bottom: 0px">{{ howStoryH2 }}</h2>
         
       </div>
-      <div id="how-story-grid" data-reveal-group style="display:grid;grid-template-columns:repeat(4,280px);justify-content:center;gap:32px 24px">
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-1-booking.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep1T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep1P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-2-arrival.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep2T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep2P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-3-confirmation.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep3T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep3P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-4-waiting.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep4T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep4P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-5-consultation.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep5T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep5P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-6-doctor-review.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep6T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep6P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-7-staff.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep7T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep7P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-8-completion.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep8T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep8P }}</p></div>
+      <div id="how-story-grid" data-reveal-group="" style="display:grid;grid-template-columns:repeat(4,280px);justify-content:center;gap:32px 24px">
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background:{{ bg_how_story_1_booking }}"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep1T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep1P }}</p></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background:{{ bg_how_story_2_arrival }}"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep2T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep2P }}</p></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background:{{ bg_how_story_3_confirmation }}"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep3T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep3P }}</p></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background:{{ bg_how_story_4_waiting }}"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep4T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep4P }}</p></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background:{{ bg_how_story_5_consultation }}"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep5T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep5P }}</p></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background:{{ bg_how_story_6_doctor_review }}"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep6T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep6P }}</p></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background:{{ bg_how_story_7_staff }}"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep7T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep7P }}</p></div>
+        <div data-reveal="" style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background:{{ bg_how_story_8_completion }}"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep8T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep8P }}</p></div>
       </div>
     </div>
   </section>
 
   
 
-  <section data-reveal style="{{ revealStyle }};padding: 40px 0 64px; border-top: 1px solid rgba(31,41,55,.06); border-bottom: 1px solid rgba(31,41,55,.06); background-color: #FFFFFF">
+  <section data-reveal="" style="padding: 40px 0 64px; background-color: #FFFFFF; padding-bottom: 40px">
     <div style="max-width: 720px; margin: 0 auto; padding: 0 24px; text-align: center; padding-top: 40px; padding-bottom: 40px">
       <h2 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: 28px; margin: 0 0 24px; color: #1F2937">{{ howPatJourneyH2 }}</h2>
       
-      <div style="display: grid; gap: 28px; text-align: left; width: min(460px,100%); margin: 0 auto; justify-content: center; padding-top: 32px; padding-right: 32px; padding-bottom: 32px; padding-left: 32px">
+      <div style="display: grid; gap: 28px; text-align: left; width: min(420px,100%); margin: 0 auto; justify-content: center; padding-top: 32px; padding-right: 0px; padding-bottom: 32px; padding-left: 32px">
         
         <div><h3 style="font-size:16px;font-weight:600;margin:0 0 4px;color:#1F2937">{{ howPJ1T }}</h3><p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ howPJ1P }}</p></div><div><h3 style="font-size:16px;font-weight:600;margin:0 0 4px;color:#1F2937">{{ howPJ2T }}</h3><p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ howPJ2P }}</p></div>
         <div><h3 style="font-size:16px;font-weight:600;margin:0 0 4px;color:#1F2937">{{ howPJ3T }}</h3><p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ howPJ3P }}</p></div>
@@ -570,11 +586,11 @@
         <a href="#/contact?intent=demo" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 28px;border-radius:999px;background:linear-gradient(90deg,#074FF8,#4171F0);color:#fff;font-weight:600;font-size:14px" style-hover="filter:brightness(1.12);color:#fff">{{ howDownloadApp }}</a>
       </div>
     </div>
-  </section><section data-reveal style="{{ revealStyle }};padding: 40px 0 64px; border-top: 1px solid rgba(31,41,55,.06); border-bottom: 1px solid rgba(31,41,55,.06); background-color: #FFFFFF">
+  </section><section data-reveal="" style="padding: 40px 0 64px; background-color: #FFF9ED">
     <div style="max-width: 720px; margin: 0 auto; padding: 0 24px; text-align: center; padding-top: 40px; padding-bottom: 40px">
       <h2 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: 28px; margin: 0 0 24px; color: #1F2937">{{ howStaffJourneyH2 }}</h2>
       
-      <div style="display: grid; gap: 28px; text-align: left; width: min(460px,100%); margin: 0 auto; justify-content: center; padding-top: 32px; padding-right: 32px; padding-bottom: 32px; padding-left: 32px">
+      <div style="display: grid; gap: 28px; text-align: left; width: min(420px,100%); margin: 0 auto; justify-content: center; padding-top: 32px; padding-right: 0px; padding-bottom: 32px; padding-left: 32px">
         <div><h3 style="font-size:16px;font-weight:600;margin:0 0 4px;color:#1F2937">{{ howSJ1T }}</h3><p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ howSJ1P }}</p></div>
         <div><h3 style="font-size:16px;font-weight:600;margin:0 0 4px;color:#1F2937">{{ howSJ2T }}</h3><p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ howSJ2P }}</p></div>
         <div><h3 style="font-size:16px;font-weight:600;margin:0 0 4px;color:#1F2937">{{ howSJ3T }}</h3><p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ howSJ3P }}</p></div>
@@ -598,10 +614,10 @@
 <!-- ============ ABOUT ============ -->
 <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};position:relative;overflow:hidden">
-    <div style="position: absolute; inset: 0; background: url(&quot;./assets/about-hero.webp&quot;) center / cover no-repeat; border-radius: 24px; height: 650px"></div>
+  <section data-reveal="" style="{{ revealStyle }};position:relative;overflow:hidden">
+    <div style="position: absolute; inset: 0; background:{{ bg_about_hero }}; border-radius: 0px; height: 650px"></div>
     
-    <div style="position: relative; max-width: 840px; margin: 0 auto; padding: 120px 24px 96px; pointer-events: none; min-height: 650px; height: auto">
+    <div style="position: relative; max-width: 840px; margin: 0 auto; padding: 120px 24px 96px; pointer-events: none; min-height: 650px; width: 840px">
       
       <h1 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: clamp(32px,4vw,52px); line-height: 1.1; margin: 0 0 18px; color: #fff; letter-spacing: -.02em; margin-top: 72px; margin-bottom: 16px">{{ aboutHeroH1 }}</h1><p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,.9);margin:0;max-width:520px">{{ aboutHeroSub }}</p>
     </div>
@@ -611,39 +627,39 @@
 
   
 
-  <section data-reveal style="{{ revealStyle }};padding: 64px 0; background-color: #FFFFFF; height: 500px; padding-right: 24px; padding-top: 80px; padding-bottom: 80px">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center">
+  <section data-reveal="" style="{{ revealStyle }};padding: 64px 0; background-color: #FFFFFF; height: 500px; padding-right: 24px; padding-top: 80px; padding-bottom: 80px">
+    <div id="about-vision-grid" style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center">
       
-      <div style="height: 360px; background: url(&quot;./assets/about-vision.webp&quot;) center / cover no-repeat; border-radius: 12px; width: 100%; max-width: 580px; padding-left: 16px; padding-right: 16px"></div><div>
+      <div style="height: 360px; background:{{ bg_about_vision }}; border-radius: 12px; width: 100%; max-width: 580px; padding-left: 16px; padding-right: 16px"></div><div>
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,3vw,32px);margin:0 0 16px;color:#1F2937">{{ aboutVisionH2 }}</h2>
         <p style="font-size: 16px; line-height: 1.75; color: #074FF8; opacity: .78; margin: 0 0 16px; text-wrap: pretty"><span style="color: #343434; font-size: 17px; text-align: center">{{ aboutVisionP1 }}</span></p>
         <p style="font-size:16px;line-height:1.75;color:#1F2937;opacity:.78;margin:0;text-wrap:pretty"><span style="color: #343434; font-size: 17px; text-align: center">{{ aboutVisionP2 }}</span></p>
       </div>
     </div>
-  </section><section data-reveal style="{{ revealStyle }};padding: 64px 0; background-color: #FFFFFF; padding-bottom: 80px; padding-top: 80px">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center">
+  </section><section data-reveal="" style="{{ revealStyle }};padding: 64px 0; background-color: #FFFFFF; padding-bottom: 80px; padding-top: 80px">
+    <div id="about-mission-grid" style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center">
       <div>
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,3vw,32px);margin:0 0 16px;color:#1F2937">{{ aboutMissionH2 }}</h2>
         <p style="font-size:16px;line-height:1.75;color:#1F2937;opacity:.78;margin:0 0 16px;text-wrap:pretty">{{ aboutMissionP1 }}</p>
         <p style="font-size:16px;line-height:1.75;color:#1F2937;opacity:.78;margin:0;text-wrap:pretty">{{ aboutMissionP2 }}</p>
       </div>
-      <div style="height: 360px; display: flex; align-items: center; justify-content: center; background: url(&quot;./assets/about-mission.webp&quot;) center / cover no-repeat; border-radius: 12px; width: 100%; max-width: 580px"></div>
+      <div style="height: 360px; display: flex; align-items: center; justify-content: center; background:{{ bg_about_mission }}; border-radius: 12px; width: 100%; max-width: 580px"></div>
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};padding: 72px 0; background-color: #FFF9ED">
+  <section data-reveal="" style="{{ revealStyle }};padding: 72px 0; background-color: #FFF9ED">
     <div style="max-width:1100px;margin:0 auto;padding:0 24px">
       <div style="max-width:640px;margin:0 auto 48px;text-align:center">
         <h2 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: clamp(26px,3.2vw,36px); margin: 0 0 16px; color: #1F2937; letter-spacing: -.02em">{{ aboutCtaH2 }}</h2>
         <p style="font-size:16px;line-height:1.7;color:#6B7280;margin:0;text-wrap:pretty">{{ aboutCtaP }}</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px">
-        <div style="border-radius: 8px; padding: 36px; box-shadow: 0 4px 20px rgba(31,41,55,.06); transition: transform 200ms ease,box-shadow 200ms ease; background-color: #FFF9ED" style-hover="transform:translateY(-4px);box-shadow:0 10px 28px rgba(31,41,55,.1)">
+        <div style="border-radius: 8px; padding: 36px; box-shadow: 0 4px 20px rgba(31,41,55,.06); transition: transform 200ms ease,box-shadow 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 10px 28px rgba(31,41,55,.1)">
           <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:22px;margin:0 0 14px;color:#1F2937">{{ aboutPatCardT }}</h3>
           <p style="font-size:15px;line-height:1.7;color:#6B7280;margin:0 0 24px;text-wrap:pretty">{{ aboutPatCardP }}</p>
           <a href="#/product/patients" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 28px;border-radius:999px;background:linear-gradient(90deg,#074FF8,#4171F0);color:#fff;font-weight:600;font-size:14px" style-hover="filter:brightness(1.12);color:#fff">{{ aboutPatCardLink }}</a>
         </div>
-        <div style="border-radius: 8px; padding: 36px; box-shadow: 0 4px 20px rgba(31,41,55,.06); transition: transform 200ms ease,box-shadow 200ms ease; background-color: #FFF9ED" style-hover="transform:translateY(-4px);box-shadow:0 10px 28px rgba(31,41,55,.1)">
+        <div style="border-radius: 8px; padding: 36px; box-shadow: 0 4px 20px rgba(31,41,55,.06); transition: transform 200ms ease,box-shadow 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 10px 28px rgba(31,41,55,.1)">
           <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:22px;margin:0 0 14px;color:#1F2937">{{ aboutHospCardT }}</h3>
           <p style="font-size:15px;line-height:1.7;color:#6B7280;margin:0 0 24px;text-wrap:pretty">{{ aboutHospCardP }}</p>
           <a href="#/product/hospitals" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 28px;border-radius:999px;background:linear-gradient(90deg,#074FF8,#4171F0);color:#fff;font-weight:600;font-size:14px" style-hover="filter:brightness(1.12);color:#fff">{{ aboutHospCardLink }}</a>
@@ -657,7 +673,7 @@
 <!-- ============ CAREERS ============ -->
 <sc-if value="{{ isCareers }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};position:relative;overflow:hidden">
+  <section data-reveal="" style="{{ revealStyle }};position:relative;overflow:hidden">
     <div style="position:absolute;inset:0;background:#000000"></div>
     <div style="position: absolute; inset: 0; opacity: .93; pointer-events: none; background-color: #F1F1F1"></div>
     <div style="position:relative;max-width:840px;margin:0 auto;padding:96px 24px;pointer-events:none">
@@ -669,23 +685,23 @@
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};padding: 64px 0; background-color: #074FF8">
+  <section data-reveal="" style="{{ revealStyle }};padding: 64px 0; background-color: #074FF8">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center">
       <div>
         <h2 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: clamp(26px,3vw,32px); margin: 0 0 16px; color: #FFFFFF">{{ careersProblemH2 }}</h2>
         <p style="font-size: 16px; line-height: 1.75; color: #F1F1F1; margin: 0 0 16px; text-wrap: pretty">{{ careersProblemP1 }}</p>
         <p style="font-size: 16px; line-height: 1.75; color: #F1F1F1; margin: 0; text-wrap: pretty">{{ careersProblemP2 }}</p>
       </div>
-      <div style="height: 340px; background: url(&quot;./assets/career-hero.webp&quot;) center / cover no-repeat; border-radius: 16px"></div>
+      <div style="height: 340px; background:{{ bg_career_hero }}; border-radius: 16px"></div>
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};padding:64px 0;background:#fff;border-top:1px solid rgba(31,41,55,.06);border-bottom:1px solid rgba(31,41,55,.06)">
+  <section data-reveal="" style="{{ revealStyle }};padding:64px 0;background:#fff;border-top:1px solid rgba(31,41,55,.06);border-bottom:1px solid rgba(31,41,55,.06)">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
       <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,3vw,32px);margin:0 0 32px;color:#1F2937">{{ careersWorkH2 }}</h2>
-      <div style="height: 450px; margin-bottom: 36px; background: url(&quot;./assets/careers-work.webp&quot;) center / cover no-repeat; border-radius: 24px"></div>
-      <div data-reveal-group style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
-        <div data-reveal style="{{ revealStyle }}"><h3 style="font-size:16px;font-weight:600;margin:0 0 8px;color:#1F2937">{{ careersP1T }}</h3><p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ careersP1P }}</p></div>
+      <div style="height: 450px; margin-bottom: 36px; background:{{ bg_careers_work }}; border-radius: 24px"></div>
+      <div data-reveal-group="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
+        <div data-reveal="" style="{{ revealStyle }}"><h3 style="font-size:16px;font-weight:600;margin:0 0 8px;color:#1F2937">{{ careersP1T }}</h3><p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ careersP1P }}</p></div>
         <div><h3 style="font-size:16px;font-weight:600;margin:0 0 8px;color:#1F2937">{{ careersP2T }}</h3><p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ careersP2P }}</p></div>
         <div><h3 style="font-size:16px;font-weight:600;margin:0 0 8px;color:#1F2937">{{ careersP3T }}</h3><p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ careersP3P }}</p></div>
         <div><h3 style="font-size:16px;font-weight:600;margin:0 0 8px;color:#1F2937">{{ careersP4T }}</h3><p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ careersP4P }}</p></div>
@@ -697,9 +713,9 @@
 
   
 
-  <section data-reveal style="{{ revealStyle }};padding: 64px 0; background-color: #FFFFFF">
+  <section data-reveal="" style="{{ revealStyle }};padding: 64px 0; background-color: #FFFFFF">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:center">
-      <div style="height: 280px; background: url(&quot;./assets/careers-location.webp&quot;) center / cover no-repeat; border-radius: 12px"></div>
+      <div style="height: 280px; background:{{ bg_careers_location }}; border-radius: 12px"></div>
       <div>
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,3vw,32px);margin:0 0 16px;color:#1F2937">{{ careersLocationH2 }}</h2>
         <p style="font-size:16px;line-height:1.75;color:#6B7280;margin:0;text-wrap:pretty">{{ careersLocationP }}</p>
@@ -707,7 +723,7 @@
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};position:relative;overflow:hidden">
+  <section data-reveal="" style="{{ revealStyle }};position:relative;overflow:hidden">
     <div style="position:absolute;inset:0;background:#000000"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,#074FF8,#4171F0);opacity:.93;pointer-events:none"></div>
     
@@ -718,7 +734,7 @@
 <!-- ============ FAQ ============ -->
 <sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};padding:72px 0 80px">
+  <section data-reveal="" style="{{ revealStyle }};padding:72px 0 80px">
     <div style="max-width:840px;margin:0 auto;padding:0 24px">
       <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0 0 24px;color:#1F2937;letter-spacing:-.02em">{{ tFaqTitle }}</h1>
       <div style="display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap">
@@ -747,14 +763,14 @@
 <!-- ============ BLOG ============ -->
 <sc-if value="{{ isBlog }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};padding:72px 0 80px">
+  <section data-reveal="" style="{{ revealStyle }};padding:72px 0 80px">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
       <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0 0 12px;color:#1F2937;letter-spacing:-.02em">{{ blogH1 }}</h1>
       <p style="font-size:16px;line-height:1.65;color:#6B7280;margin:0 0 40px;max-width:620px">{{ blogSub }}</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
-        <article data-reveal style="{{ revealStyle }};background:#fff;border:1px solid rgba(31,41,55,.08);border-radius:8px;overflow:hidden;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,41,55,.10)">
+        <article data-reveal="" style="{{ revealStyle }};background:#fff;border:1px solid rgba(31,41,55,.08);border-radius:8px;overflow:hidden;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,41,55,.10)">
           
-          <div style="height: 200px; background: url(&quot;./assets/blog-cover-image.webp&quot;) center / cover no-repeat; overflow: visible"></div><div style="padding: 24px; border-radius: 24px">
+          <div style="height: 200px; background:{{ bg_blog_cover_image }}; overflow: visible"></div><div style="padding: 24px; border-radius: 24px">
             <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#074FF8;font-weight:600;margin-bottom:10px">{{ blogCardCategory }}</div>
             <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 10px;color:#1F2937">{{ blogCardTitle }}</h2>
             <p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0 0 16px;text-wrap:pretty">{{ blogCardExcerpt }}</p>
@@ -771,7 +787,7 @@
 <!-- ============ BLOG ARTICLE ============ -->
 <sc-if value="{{ isBlogArticle }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};padding: 96px 0 40px; text-align: center; position: relative">
+  <section data-reveal="" style="{{ revealStyle }};padding: 96px 0 40px; text-align: center; position: relative">
     <div style="max-width:700px;margin:0 auto;padding:0 24px;position:relative">
       <a href="#/blog" style="display: inline-flex; align-items: center; gap: 6px; font-size: 20px; font-weight: 600; color: #1F2937; position: absolute; left: 24px; top: 0" style-hover="color:#4171F0">{{ blogBackLink }}</a>
       <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#074FF8;font-weight:600;margin-bottom:14px">{{ blogArticleCategory }}</div>
@@ -783,7 +799,7 @@
       </div>
     </div>
     <div id="blog-article-cover-wrap" style="max-width: 900px; margin: 0 auto; padding: 0 24px 40px; width: 652px; padding-bottom: 0px; display: flex; justify-content: center">
-      <div style="height: 420px; width: 100%; max-width: 652px; background: url(&quot;./assets/blog-article-cover.webp&quot;) center / cover no-repeat; border-radius: 16px"></div>
+      <div style="height: 420px; width: 100%; max-width: 652px; background:{{ bg_blog_article_cover }}; border-radius: 16px"></div>
     </div>
     <div id="blog-article-body" style="max-width: 700px; margin: 0 auto; padding: 0 24px 24px; width: 800px; display: flex; justify-content: center">
       <div style="font-size: 17px; line-height: 1.85; color: #1F2937; width: 100%; max-width: 800px; text-align: justify; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px">
@@ -797,7 +813,7 @@
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};padding: 80px 0; background-color: #FFFFFF">
+  <section data-reveal="" style="{{ revealStyle }};padding: 80px 0; background-color: #FFFFFF">
     <div style="max-width: 700px; margin: 0 auto; padding: 0 24px; text-align: center; padding-top: 8px; padding-bottom: 8px; padding-right: 8px; padding-left: 8px; margin-top: 0px; margin-bottom: 0px">
       <h2 style="font-family: 'Playfair Display',serif; font-weight: 700; font-size: clamp(26px,3.4vw,36px); margin: 0 0 16px; color: #1F2937; letter-spacing: -.02em">{{ blogCtaH2 }}</h2>
       <a href="#/contact?intent=demo" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 14px 36px; border-radius: 999px; color: #FFFFFF; font-weight: 600; font-size: 15px; background-color: #074FF8" style-hover="background:rgba(255,255,255,.9);color:#074FF8">{{ tDemo }}</a>
@@ -809,7 +825,7 @@
 <!-- ============ CONTACT ============ -->
 <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};padding:72px 0 80px">
+  <section data-reveal="" style="{{ revealStyle }};padding:72px 0 80px">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
       <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0 0 24px;color:#1F2937;letter-spacing:-.02em">{{ tContactTitle }}</h1>
       <div style="display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap">
@@ -964,7 +980,7 @@
 <!-- ============ LEGAL ============ -->
 <sc-if value="{{ isLegal }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};padding:72px 0 80px">
+  <section data-reveal="" style="{{ revealStyle }};padding:72px 0 80px">
     <div style="max-width:760px;margin:0 auto;padding:0 24px">
       <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(30px,3.6vw,42px);line-height:1.15;margin:0 0 8px;color:#1F2937;letter-spacing:-.02em">{{ legalTitle }}</h1>
       <p style="font-size:13px;color:#6B7280;margin:0 0 40px">{{ legalOrgLine }}</p>
@@ -985,9 +1001,9 @@
 <!-- ============ 404 ============ -->
 <sc-if value="{{ isNotFound }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section data-reveal style="{{ revealStyle }};padding:120px 0">
+  <section data-reveal="" style="{{ revealStyle }};padding:120px 0">
     <div style="max-width:600px;margin:0 auto;padding:0 24px;text-align:center">
-      <img src="./assets/openque-logo.webp" alt="" style="width:64px;height:64px;margin:0 auto 28px;display:block;opacity:.9">
+      <img src="./openque-logo.webp" alt="" loading="lazy" style="width:64px;height:64px;margin:0 auto 28px;display:block;opacity:.9">
       <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,3.4vw,38px);margin:0 0 14px;color:#1F2937">{{ tNotFoundTitle }}</h1>
       <p style="font-size:16px;line-height:1.7;color:#6B7280;margin:0 0 28px">{{ tNotFoundBody }}</p>
       <div style="display:flex;justify-content:center">
@@ -1001,14 +1017,14 @@
 
 
 <footer style="background:#0B1120">
-  <div style="background:#074FF8;padding:88px 0">
+  <div id="footer-cta-banner" style="background: #074FF8; padding: 88px 0; height: 300px">
     <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:40px">
       <div style="flex:1 1 420px;min-width:0">
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(38px,5.4vw,64px);line-height:1.02;margin:0 0 14px;color:#fff;letter-spacing:-.02em">{{ tFooterNewsHead2 }}</h2>
         <p style="font-family:Inter,sans-serif;font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:420px;text-wrap:pretty">{{ tFooterCtaSub }}</p>
       </div>
       <div style="flex:0 0 auto;display:flex;align-items:center;gap:22px;padding:22px;border:1px solid rgba(255,255,255,.35);border-radius:14px;background:rgba(11,17,32,.14)">
-        <div style="width: 108px; height: 108px; flex: 0 0 108px; background: url(&quot;./assets/footer-qr-code.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
+        <div style="width: 108px; height: 108px; flex: 0 0 108px; background:{{ bg_footer_qr_code }}; border-radius: 8px"></div>
         <div style="display:flex;flex-direction:column;gap:10px">
           <a href="#/contact" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(255,255,255,.4);border-radius:8px;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:500;white-space:nowrap" style-hover="background:rgba(255,255,255,.14)">App Store</a>
           <a href="#/contact" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(255,255,255,.4);border-radius:8px;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:500;white-space:nowrap" style-hover="background:rgba(255,255,255,.14)">Play Store</a>
@@ -1587,10 +1603,23 @@ class Component extends DCLogic {
     };
     document.addEventListener("pointerdown", this._onOutsideClick);
     setTimeout(() => this.setState({ pageRevealed: true }), 50);
+    this._bgPick = w => w <= 420 ? 600 : w <= 640 ? 900 : w <= 1200 ? 1440 : 1920;
+    this.setState({ bgW: this._bgPick(window.innerWidth), isMobile: window.innerWidth <= 767 });
+    this._onBgResize = () => {
+      const w = this._bgPick(window.innerWidth);
+      const mob = window.innerWidth <= 767;
+      if (w !== this.state.bgW || mob !== this.state.isMobile) this.setState({ bgW: w, isMobile: mob });
+    };
+    window.addEventListener("resize", this._onBgResize);
   }
   componentWillUnmount() {
     window.removeEventListener("hashchange", this._onHash);
     document.removeEventListener("pointerdown", this._onOutsideClick);
+    window.removeEventListener("resize", this._onBgResize);
+  }
+  bg(name) {
+    const w = this.state.bgW || 1920;
+    return 'url("./' + name + '-' + w + 'w.webp") center / cover no-repeat';
   }
 
   sync() {
@@ -1619,6 +1648,9 @@ class Component extends DCLogic {
   renderVals() {
     const r = this.state.route;
     const t = T[this.state.lang];
+    const bgNames = ["home-2a-showcase-laptop","home-2b-showcase-phone","home-4a-air-bento-checkins","home-4b-air-bento-scheduling","home-4c-air-bento-insights","patients-hero-app","hospitals-modes-solo","hospitals-modes-small-team","hospitals-modes-full-hospital","hospitals-role-reception","hospitals-role-doctor","hospitals-role-admin","hospitals-role-management","how-story-1-booking","how-story-2-arrival","how-story-3-confirmation","how-story-4-waiting","how-story-5-consultation","how-story-6-doctor-review","how-story-7-staff","how-story-8-completion","about-hero","about-vision","about-mission","career-hero","careers-work","careers-location","blog-cover-image","blog-article-cover","footer-qr-code"];
+    const bgVals = {};
+    bgNames.forEach(n => { bgVals["bg_" + n.replace(/-/g, "_")] = this.bg(n); });
     const known = ["", "product/patients", "product/hospitals", "product/how-it-works", "features", "about", "careers", "faq", "blog", "blog/why-no-countdown-timer", "contact"];
     const legal = LEGAL[r];
     const faqList = FAQ[this.state.faqTab].map((f, i) => ({
@@ -1629,6 +1661,7 @@ class Component extends DCLogic {
     }));
 
     return {
+      ...bgVals,
       isHome: r === "", isPatients: r === "product/patients", isHospitals: r === "product/hospitals",
       isHow: r === "product/how-it-works", isAbout: r === "about",
       isCareers: r === "careers", isFaq: r === "faq", isBlog: r === "blog", isBlogArticle: r === "blog/why-no-countdown-timer", isContact: r === "contact",
@@ -1740,10 +1773,16 @@ class Component extends DCLogic {
       toggleNav: () => this.setState(s => ({ menu: s.menu === "nav" ? null : "nav" })),
       closeNav: () => this.setState({ menu: null }),
       mainStyle: "flex:1;padding-top:" + (r === "" ? "0" : "104px"),
-      navPillStyle: "pointer-events:auto;display:flex;align-items:center;gap:18px;padding:8px 18px 8px 28px;border-radius:999px;background:#fff;border:1px solid rgba(31,41,55,.12);box-shadow:0 4px 20px rgba(31,41,55,.08)",
+      isMobile: this.state.isMobile,
+      headerLogoStyle: "height:" + (this.state.isMobile ? "28px" : "40px") + ";width:" + (this.state.isMobile ? "28px" : "40px") + ";object-fit:contain;display:block",
+      headerBrandStyle: "font-weight:800;font-family:Playfair Display;font-size:" + (this.state.isMobile ? "18px" : "28px") + ";color:#074FF8;padding-bottom:" + (this.state.isMobile ? "4px" : "8px"),
+      headerBurgerBoxStyle: "width:" + (this.state.isMobile ? "38px" : "24px") + ";height:" + (this.state.isMobile ? "38px" : "24px") + ";display:flex;flex-direction:column;justify-content:center;gap:5px;pointer-events:none",
+      navPillStyle: this.state.isMobile
+        ? "pointer-events:auto;display:flex;align-items:center;gap:10px;padding:5px 12px 5px 16px;border-radius:999px;background:#fff;border:1px solid rgba(31,41,55,.12);box-shadow:0 4px 20px rgba(31,41,55,.08)"
+        : "pointer-events:auto;display:flex;align-items:center;gap:18px;padding:8px 18px 8px 28px;border-radius:999px;background:#fff;border:1px solid rgba(31,41,55,.12);box-shadow:0 4px 20px rgba(31,41,55,.08)",
       navWordmarkStyle: "font-family:'Playfair Display',serif;font-weight:700;font-size:22px;letter-spacing:.14em;color:#1F2937",
-      navLogoSrc: "./assets/openque-logo-dark-1200px-master-msxi4ztp-zo9g.png",
-      navBurgerStyle: "position:relative;display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0 10px;border-radius:999px;border:none;background:none;cursor:pointer",
+      navLogoSrc: "./openque-logo-dark-1200px-master-msxi4ztp-zo9g.png",
+      navBurgerStyle: "position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:999px;border:none;background:none;cursor:pointer",
       navBurgerBar1: "display:block;height:2px;width:100%;border-radius:2px;background:#1F2937;transition:transform 200ms ease;transform:" + (this.state.menu === "nav" ? "translateY(3.5px) rotate(45deg)" : "none"),
       navBurgerBar2: "display:block;height:2px;width:100%;border-radius:2px;background:#1F2937;transition:transform 200ms ease;transform:" + (this.state.menu === "nav" ? "translateY(-3.5px) rotate(-45deg)" : "none"),
       scrollPastHero: () => window.scrollTo({ top: window.innerHeight, behavior: "smooth" }),
