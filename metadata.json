@@ -1,6 +1,0 @@
-{
-  "name": "OpenQue Website",
-  "description": "Marketing website for OpenQue — queue and appointment infrastructure for Indian OPDs with full English and Tamil support",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
