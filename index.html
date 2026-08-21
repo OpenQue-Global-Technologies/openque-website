@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OpenQue — Queue Management for OPDs</title>
 <meta name="description" content="OpenQue is a smart queue management and appointment scheduling platform for outpatient departments (OPDs), hospitals, and clinics to reduce wait times and streamline patient flow.">
-<script src="./scripts/support.js"></script>
+<script src="/scripts/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <title>OpenQue — Queue Management for OPDs</title>
 <meta name="description" content="OpenQue is a smart queue management and appointment scheduling platform for outpatient departments (OPDs), hospitals, and clinics to reduce wait times and streamline patient flow.">
-<link rel="icon" href="./assets/openque-logo.webp">
+<link rel="icon" href="/assets/openque-logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Tamil:wght@400;600&amp;display=swap" rel="stylesheet">
-<script src="./scripts/image-slot.js"></script>
+<script src="/scripts/image-slot.js"></script>
 <style>
   html, body { margin:0; padding:0; background:#F2F2F2; color:#1F2937; font-family:Inter, system-ui, sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   * { box-sizing:border-box; }
@@ -546,7 +546,7 @@
     justify-content: flex-end;
     padding-right: clamp(24px, 6vw, 96px);
     overflow: hidden;
-    background: url("./assets/home-3a-showcase-background.webp") center / cover no-repeat;
+    background: url("/assets/home-3a-showcase-background.webp") center / cover no-repeat;
     border-color: #ffffff;
   }
   #home-3-showcase-overlay {
@@ -808,7 +808,7 @@
 <header id="site-header" style="position:fixed;top:20px;left:0;right:0;z-index:60;display:flex;flex-direction:column;align-items:center;padding:0 16px;pointer-events:none">
   <div id="nav-pill" style="{{ navPillStyle }}" data-nav-dropdown="1">
     <a id="nav-brand" href="/" style="display:flex;align-items:center;gap:10px;min-height:44px">
-      <img id="nav-logo" src="./assets/openque-logo.webp" alt="OpenQue" style="height: 40px; width: 40px; object-fit: contain; display: block">
+      <img id="nav-logo" src="/assets/openque-logo.webp" alt="OpenQue" style="height: 40px; width: 40px; object-fit: contain; display: block">
       <span id="nav-brand-text" style="font-weight: 800; font-family: Playfair Display; font-size: 34px; color: #074FF8; align-self: flex-start; vertical-align: top; line-height: 1.1">{{ brandName }}</span>
     </a>
     <button id="nav-burger-btn" onClick="{{ toggleNav }}" aria-label="Menu" aria-expanded="{{ navOpen }}" style="{{ navBurgerStyle }}">
@@ -865,7 +865,7 @@
 <div>
   <section id="home-hero-section" data-reveal style="{{ revealStyle }};position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:#0B1120">
     <div id="home-1-hero-video" style="position:absolute;inset:0;background:#0B1120">
-      <video autoplay="autoplay" muted="muted" loop="loop" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:cover" src="./assets/home-1a-hero-video.mp4"></video>
+      <video autoplay="autoplay" muted="muted" loop="loop" playsInline="{{ true }}" style="width:100%;height:100%;object-fit:cover" src="/assets/home-1a-hero-video.mp4"></video>
     </div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,32,.55) 0%,rgba(11,17,32,.15) 38%,rgba(11,17,32,.72) 100%);pointer-events:none"></div>
     <div id="home-hero-content" style="position:relative;max-width:1100px;margin:0 auto;padding:0 24px 88px;width:100%;text-align:center;pointer-events:none">
@@ -894,11 +894,11 @@
         <div id="home-showcase-col" style="width: 100%; max-width: 700px; display: flex; flex-direction: column; align-items: center; text-align: center; height: auto">
           <div style="position: relative; width: 100%; max-width: 700px; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px">
             <div style="width: min(700px, 90%); background: #1F2937; border-radius: 14px; padding: 6px 6px 0; box-shadow: 0 30px 60px rgba(31,41,55,.18)">
-              <div style="width:100%;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:url(&quot;./assets/home-2a-showcase-laptop.webp&quot;) center / cover no-repeat"></div>
+              <div style="width:100%;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:url(&quot;/assets/home-2a-showcase-laptop.webp&quot;) center / cover no-repeat"></div>
             </div>
             
             <div style="position: absolute; right: 2%; bottom: -20px; width: min(160px, 22%); background: #1F2937; border-radius: 8px; padding: 4px; box-shadow: 0 20px 40px rgba(31,41,55,.22)">
-              <div style="width:100%;aspect-ratio:9/19;border-radius:4px;overflow:hidden;background:url(&quot;./assets/home-2b-showcase-phone.webp&quot;) center / cover no-repeat"></div>
+              <div style="width:100%;aspect-ratio:9/19;border-radius:4px;overflow:hidden;background:url(&quot;/assets/home-2b-showcase-phone.webp&quot;) center / cover no-repeat"></div>
             </div>
           </div>
           
@@ -970,7 +970,7 @@
       </div>
       <div id="home-bento-grid" data-reveal-group style="display: grid; grid-template-columns: repeat(10,1fr); gap: 40px">
         <div data-reveal style="{{ revealStyle }};position:relative;grid-column:span 5;min-height:300px;border-radius:8px;overflow:hidden;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(11,17,32,.28)">
-          <div style="position:absolute;inset:0;background:url(&quot;./assets/home-4a-air-bento-checkins.webp&quot;) center / cover no-repeat"></div>
+          <div style="position:absolute;inset:0;background:url(&quot;/assets/home-4a-air-bento-checkins.webp&quot;) center / cover no-repeat"></div>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg,rgba(11,17,32,.72),rgba(11,17,32,.12) 55%,rgba(11,17,32,0)); pointer-events: none; top: 0px"></div>
           <div style="position: relative; padding: 26px 28px; pointer-events: none">
             <h3 style="font-family:Inter,sans-serif;font-size:19px;font-weight:600;margin:0 0 8px;color:#fff;letter-spacing:-.01em">{{ tBentoTitle1 }}</h3>
@@ -1009,7 +1009,7 @@
           </div>
         </div>
         <div data-reveal style="{{ revealStyle }};position:relative;grid-column:span 6;min-height:300px;border-radius:8px;overflow:hidden;background:#1F2937;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),translate 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(11,17,32,.28)">
-          <div style="position:absolute;inset:0;background:url(&quot;./assets/home-4b-air-bento-scheduling.webp&quot;) center / cover no-repeat"></div>
+          <div style="position:absolute;inset:0;background:url(&quot;/assets/home-4b-air-bento-scheduling.webp&quot;) center / cover no-repeat"></div>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg,rgba(11,17,32,.72),rgba(11,17,32,.12) 55%,rgba(11,17,32,0)); pointer-events: none; top: 0px"></div>
           <div style="position: relative; padding: 26px 28px; pointer-events: none">
             <h3 style="font-family:Inter,sans-serif;font-size:19px;font-weight:600;margin:0 0 8px;color:#fff;letter-spacing:-.01em">{{ tBentoTitle4 }}</h3>
@@ -1017,7 +1017,7 @@
           </div>
         </div>
         <div data-reveal style="{{ revealStyle }};position:relative;grid-column:span 6;min-height:300px;border-radius:8px;overflow:hidden;background:#1F2937;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),translate 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 32px rgba(11,17,32,.28)">
-          <div style="position:absolute;inset:0;background:url(&quot;./assets/home-4c-air-bento-insights.webp&quot;) center / cover no-repeat"></div>
+          <div style="position:absolute;inset:0;background:url(&quot;/assets/home-4c-air-bento-insights.webp&quot;) center / cover no-repeat"></div>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg,rgba(11,17,32,.72),rgba(11,17,32,.12) 55%,rgba(11,17,32,0)); pointer-events: none; top: 0px"></div>
           <div style="position: relative; padding: 26px 28px; pointer-events: none">
             <h3 style="font-family:Inter,sans-serif;font-size:19px;font-weight:600;margin:0 0 8px;color:#fff;letter-spacing:-.01em">{{ tBentoTitle5 }}</h3>
@@ -1093,7 +1093,7 @@
         </div>
       </div>
       <div style="display:flex;justify-content:center">
-        <div style="width: min(548px,100%); aspect-ratio: 548/449; border-radius: 12px; background: url(&quot;./assets/patients-hero-app.webp&quot;) center / cover no-repeat"></div>
+        <div style="width: min(548px,100%); aspect-ratio: 548/449; border-radius: 12px; background: url(&quot;/assets/patients-hero-app.webp&quot;) center / cover no-repeat"></div>
       </div>
     </div>
   </section>
@@ -1150,7 +1150,7 @@
         <a href="/contact?intent=demo" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 28px;border-radius:999px;background:linear-gradient(90deg,#074FF8,#4171F0);color:#fff;font-weight:600;font-size:14px" style-hover="filter:brightness(1.12);color:#fff">{{ tDemo }}</a>
       </div><div style="position: relative; width: 100%; max-width: 700px; display: flex; align-items: center; justify-content: center; margin: 8px auto">
             <div style="width: min(700px,90%); background: #1F2937; border-radius: 14px; padding: 6px 6px 0; box-shadow: 0 30px 60px rgba(31,41,55,.18)">
-              <div style="width:100%;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:url(&quot;./assets/home-2a-showcase-laptop.webp&quot;) center / cover no-repeat"></div>
+              <div style="width:100%;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:url(&quot;/assets/home-2a-showcase-laptop.webp&quot;) center / cover no-repeat"></div>
             </div>
           </div>
       
@@ -1160,17 +1160,17 @@
       <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,3.2vw,36px);line-height:1.15;margin:0 0 40px;color:#1F2937">{{ hospModesH2 }}</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
         <div style="background:#fff;border:1px solid rgba(31,41,55,.08);border-radius:8px;padding:28px;transition:transform 200ms ease,box-shadow 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,41,55,.10)">
-          <div style="height: 150px; margin-bottom: 20px; background: url(&quot;./assets/hospitals-modes-solo.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
+          <div style="height: 150px; margin-bottom: 20px; background: url(&quot;/assets/hospitals-modes-solo.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
           <h3 style="font-size:20px;font-weight:600;margin:0 0 10px;color:#1F2937">{{ hospSoloTitle }}</h3>
           <p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ hospSoloP }}</p>
         </div>
         <div style="background:#fff;border:1px solid rgba(31,41,55,.08);border-radius:8px;padding:28px;transition:transform 200ms ease,box-shadow 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,41,55,.10)">
-          <div style="height: 150px; margin-bottom: 20px; background: url(&quot;./assets/hospitals-modes-small-team.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
+          <div style="height: 150px; margin-bottom: 20px; background: url(&quot;/assets/hospitals-modes-small-team.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
           <h3 style="font-size:20px;font-weight:600;margin:0 0 10px;color:#1F2937">{{ hospTeamTitle }}</h3>
           <p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ hospTeamP }}</p>
         </div>
         <div style="background:#fff;border:1px solid rgba(31,41,55,.08);border-radius:8px;padding:28px;transition:transform 200ms ease,box-shadow 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,41,55,.10)">
-          <div style="height: 150px; margin-bottom: 20px; background: url(&quot;./assets/hospitals-modes-full-hospital.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
+          <div style="height: 150px; margin-bottom: 20px; background: url(&quot;/assets/hospitals-modes-full-hospital.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
           <h3 style="font-size:20px;font-weight:600;margin:0 0 10px;color:#1F2937">{{ hospFullTitle }}</h3>
           <p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ hospFullP }}</p>
         </div>
@@ -1187,22 +1187,22 @@
       <p style="font-size:16px;line-height:1.65;color:#6B7280;margin:0 0 40px;max-width:620px">{{ hospRoleSub }}</p>
       <div data-reveal-group style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
         <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
-          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;./assets/hospitals-role-reception.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
+          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;/assets/hospitals-role-reception.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
           <h3 style="font-size:17px;font-weight:700;margin:0 0 6px;color:#1F2937">{{ hospReceptionTitle }}</h3>
           <p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ hospReceptionP }}</p>
         </div>
         <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
-          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;./assets/hospitals-role-doctor.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
+          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;/assets/hospitals-role-doctor.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
           <h3 style="font-size:17px;font-weight:700;margin:0 0 6px;color:#1F2937">{{ hospDoctorsTitle }}</h3>
           <p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ hospDoctorsP }}</p>
         </div>
         <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
-          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;./assets/hospitals-role-admin.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
+          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;/assets/hospitals-role-admin.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
           <h3 style="font-size:17px;font-weight:700;margin:0 0 6px;color:#1F2937">{{ hospAdminTitle }}</h3>
           <p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ hospAdminP }}</p>
         </div>
         <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)">
-          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;./assets/hospitals-role-management.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
+          <div style="border-radius: 10px; overflow: hidden; margin-bottom: 20px; background: url(&quot;/assets/hospitals-role-management.webp&quot;) center / cover no-repeat; width: 100%; aspect-ratio: 4/5"></div>
           <h3 style="font-size:17px;font-weight:700;margin:0 0 6px;color:#1F2937">{{ hospMgmtTitle }}</h3>
           <p style="font-size:14px;line-height:1.6;color:#6B7280;margin:0">{{ hospMgmtP }}</p>
         </div>
@@ -1237,14 +1237,14 @@
         
       </div>
       <div id="how-story-grid" data-reveal-group style="display:grid;grid-template-columns:repeat(4,280px);justify-content:center;gap:32px 24px">
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-1-booking.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep1T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep1P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-2-arrival.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep2T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep2P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-3-confirmation.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep3T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep3P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-4-waiting.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep4T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep4P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-5-consultation.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep5T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep5P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-6-doctor-review.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep6T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep6P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-7-staff.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep7T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep7P }}</p></div>
-        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;./assets/how-story-8-completion.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep8T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep8P }}</p></div>
+        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;/assets/how-story-1-booking.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep1T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep1P }}</p></div>
+        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;/assets/how-story-2-arrival.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep2T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep2P }}</p></div>
+        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;/assets/how-story-3-confirmation.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep3T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep3P }}</p></div>
+        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;/assets/how-story-4-waiting.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep4T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep4P }}</p></div>
+        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;/assets/how-story-5-consultation.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep5T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep5P }}</p></div>
+        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;/assets/how-story-6-doctor-review.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep6T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep6P }}</p></div>
+        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;/assets/how-story-7-staff.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep7T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep7P }}</p></div>
+        <div data-reveal style="{{ revealStyle }};transition:transform 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-6px)"><div style="width: 280px; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 18px; background: url(&quot;/assets/how-story-8-completion.webp&quot;) center / cover no-repeat"></div><h3 style="font-size:16px;font-weight:700;margin:0 0 2px;color:#1F2937">{{ howStep8T }}</h3><p style="font-size:13px;color:#074FF8;margin:0">{{ howStep8P }}</p></div>
       </div>
     </div>
   </section>
@@ -1295,7 +1295,7 @@
 <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
 <div>
   <section id="about-hero-section" data-reveal style="{{ revealStyle }};position:relative;overflow:hidden">
-    <div id="about-hero-bg" style="position: absolute; inset: 0; background: url(&quot;./assets/about-hero.webp&quot;) center / cover no-repeat; border-radius: 0px; height: 650px"></div>
+    <div id="about-hero-bg" style="position: absolute; inset: 0; background: url(&quot;/assets/about-hero.webp&quot;) center / cover no-repeat; border-radius: 0px; height: 650px"></div>
     <div id="about-hero-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.25); height: 650px; pointer-events: none"></div>
     
     <div id="about-hero-content" style="position: relative; max-width: 840px; margin: 0 auto; padding: 120px 24px 96px; pointer-events: none; min-height: 650px; height: auto">
@@ -1310,7 +1310,7 @@
 
   <section id="about-vision-section" data-reveal style="{{ revealStyle }};padding: 16px 0 80px 0; background-color: #FFFFFF">
     <div id="about-vision-grid" style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center">
-      <div id="about-vision-img" style="height: 360px; background: url(&quot;./assets/about-vision.webp&quot;) center / cover no-repeat; border-radius: 12px; width: 100%; max-width: 580px"></div>
+      <div id="about-vision-img" style="height: 360px; background: url(&quot;/assets/about-vision.webp&quot;) center / cover no-repeat; border-radius: 12px; width: 100%; max-width: 580px"></div>
       <div id="about-vision-text">
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,3vw,32px);margin:0 0 16px;color:#1F2937">{{ aboutVisionH2 }}</h2>
         <p style="font-size: 16px; line-height: 1.75; color: #1F2937; opacity: .82; margin: 0 0 16px; text-wrap: pretty">{{ aboutVisionP1 }}</p>
@@ -1325,7 +1325,7 @@
         <p style="font-size:16px;line-height:1.75;color:#1F2937;opacity:.82;margin:0 0 16px;text-wrap:pretty">{{ aboutMissionP1 }}</p>
         <p style="font-size:16px;line-height:1.75;color:#1F2937;opacity:.82;margin:0;text-wrap:pretty">{{ aboutMissionP2 }}</p>
       </div>
-      <div id="about-mission-img" style="height: 360px; display: flex; align-items: center; justify-content: center; background: url(&quot;./assets/about-mission.webp&quot;) center / cover no-repeat; border-radius: 12px; width: 100%; max-width: 580px"></div>
+      <div id="about-mission-img" style="height: 360px; display: flex; align-items: center; justify-content: center; background: url(&quot;/assets/about-mission.webp&quot;) center / cover no-repeat; border-radius: 12px; width: 100%; max-width: 580px"></div>
     </div>
   </section>
 
@@ -1374,14 +1374,14 @@
         <p style="font-size: 16px; line-height: 1.75; color: #F1F1F1; margin: 0 0 16px; text-wrap: pretty">{{ careersProblemP1 }}</p>
         <p style="font-size: 16px; line-height: 1.75; color: #F1F1F1; margin: 0; text-wrap: pretty">{{ careersProblemP2 }}</p>
       </div>
-      <div id="careers-hero-img" style="height: 340px; background: url(&quot;./assets/career-hero.webp&quot;) center / cover no-repeat; border-radius: 16px"></div>
+      <div id="careers-hero-img" style="height: 340px; background: url(&quot;/assets/career-hero.webp&quot;) center / cover no-repeat; border-radius: 16px"></div>
     </div>
   </section>
 
   <section data-reveal style="{{ revealStyle }};padding:64px 0;background:#fff;border-top:1px solid rgba(31,41,55,.06);border-bottom:1px solid rgba(31,41,55,.06)">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
       <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,3vw,32px);margin:0 0 32px;color:#1F2937">{{ careersWorkH2 }}</h2>
-      <div id="careers-work-img" style="height: 450px; margin-bottom: 36px; background: url(&quot;./assets/careers-work.webp&quot;) center / cover no-repeat; border-radius: 24px"></div>
+      <div id="careers-work-img" style="height: 450px; margin-bottom: 36px; background: url(&quot;/assets/careers-work.webp&quot;) center / cover no-repeat; border-radius: 24px"></div>
       <div data-reveal-group style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
         <div data-reveal style="{{ revealStyle }}"><h3 style="font-size:16px;font-weight:600;margin:0 0 8px;color:#1F2937">{{ careersP1T }}</h3><p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ careersP1P }}</p></div>
         <div><h3 style="font-size:16px;font-weight:600;margin:0 0 8px;color:#1F2937">{{ careersP2T }}</h3><p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0">{{ careersP2P }}</p></div>
@@ -1397,7 +1397,7 @@
 
   <section id="careers-location-section" data-reveal style="{{ revealStyle }};padding: 64px 0; background-color: #FFFFFF">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:center">
-      <div id="careers-location-img" style="height: 280px; background: url(&quot;./assets/careers-location.webp&quot;) center / cover no-repeat; border-radius: 12px"></div>
+      <div id="careers-location-img" style="height: 280px; background: url(&quot;/assets/careers-location.webp&quot;) center / cover no-repeat; border-radius: 12px"></div>
       <div>
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,3vw,32px);margin:0 0 16px;color:#1F2937">{{ careersLocationH2 }}</h2>
         <p style="font-size:16px;line-height:1.75;color:#6B7280;margin:0;text-wrap:pretty">{{ careersLocationP }}</p>
@@ -1452,7 +1452,7 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
         <article data-reveal style="{{ revealStyle }};background:#fff;border:1px solid rgba(31,41,55,.08);border-radius:8px;overflow:hidden;transition:transform 200ms ease,box-shadow 200ms ease,opacity 450ms cubic-bezier(.16,1,.3,1),transform 450ms cubic-bezier(.16,1,.3,1)" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(31,41,55,.10)">
           
-          <div style="height: 200px; background: url(&quot;./assets/blog-cover-image.webp&quot;) center / cover no-repeat; overflow: visible"></div><div style="padding: 24px; border-radius: 24px">
+          <div style="height: 200px; background: url(&quot;/assets/blog-cover-image.webp&quot;) center / cover no-repeat; overflow: visible"></div><div style="padding: 24px; border-radius: 24px">
             <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#074FF8;font-weight:600;margin-bottom:10px">{{ blogCardCategory }}</div>
             <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 10px;color:#1F2937">{{ blogCardTitle }}</h2>
             <p style="font-size:14px;line-height:1.65;color:#6B7280;margin:0 0 16px;text-wrap:pretty">{{ blogCardExcerpt }}</p>
@@ -1481,7 +1481,7 @@
       </div>
     </div>
     <div id="blog-article-cover-wrap" style="max-width: 900px; margin: 0 auto; padding: 0 24px 40px; width: 652px; padding-bottom: 0px; display: flex; justify-content: center">
-      <div style="height: 420px; width: 100%; max-width: 652px; background: url(&quot;./assets/blog-article-cover.webp&quot;) center / cover no-repeat; border-radius: 16px"></div>
+      <div style="height: 420px; width: 100%; max-width: 652px; background: url(&quot;/assets/blog-article-cover.webp&quot;) center / cover no-repeat; border-radius: 16px"></div>
     </div>
     <div id="blog-article-body" style="max-width: 700px; margin: 0 auto; padding: 0 24px 24px; width: 800px; display: flex; justify-content: center">
       <div style="font-size: 17px; line-height: 1.85; color: #1F2937; width: 100%; max-width: 800px; text-align: justify; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px">
@@ -1685,7 +1685,7 @@
 <div>
   <section data-reveal style="{{ revealStyle }};padding:120px 0">
     <div style="max-width:600px;margin:0 auto;padding:0 24px;text-align:center">
-      <img src="./assets/openque-logo.webp" alt="" style="width:64px;height:64px;margin:0 auto 28px;display:block;opacity:.9">
+      <img src="/assets/openque-logo.webp" alt="" style="width:64px;height:64px;margin:0 auto 28px;display:block;opacity:.9">
       <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,3.4vw,38px);margin:0 0 14px;color:#1F2937">{{ tNotFoundTitle }}</h1>
       <p style="font-size:16px;line-height:1.7;color:#6B7280;margin:0 0 28px">{{ tNotFoundBody }}</p>
       <div style="display:flex;justify-content:center">
@@ -1706,7 +1706,7 @@
         <p id="footer-cta-subtext" style="font-family:Inter,sans-serif;font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:420px;text-wrap:pretty">{{ tFooterCtaSub }}</p>
       </div>
       <div style="flex:0 0 auto;display:flex;align-items:center;gap:22px;padding:22px;border:1px solid rgba(255,255,255,.35);border-radius:14px;background:rgba(11,17,32,.14)">
-        <div style="width: 108px; height: 108px; flex: 0 0 108px; background: url(&quot;./assets/footer-qr-code.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
+        <div style="width: 108px; height: 108px; flex: 0 0 108px; background: url(&quot;/assets/footer-qr-code.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
         <div style="display:flex;flex-direction:column;gap:10px">
           <a href="/contact" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(255,255,255,.4);border-radius:8px;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:500;white-space:nowrap" style-hover="background:rgba(255,255,255,.14)">App Store</a>
           <a href="/contact" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(255,255,255,.4);border-radius:8px;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:500;white-space:nowrap" style-hover="background:rgba(255,255,255,.14)">Play Store</a>
@@ -2500,7 +2500,7 @@ class Component extends DCLogic {
       mainStyle: "flex:1;padding-top:" + (r === "" ? "0" : "104px"),
       navPillStyle: "pointer-events:auto;display:flex;align-items:center;gap:18px;padding:8px 18px 8px 28px;border-radius:999px;background:#fff;border:1px solid rgba(31,41,55,.12);box-shadow:0 4px 20px rgba(31,41,55,.08)",
       navWordmarkStyle: "font-family:'Playfair Display',serif;font-weight:700;font-size:22px;letter-spacing:.14em;color:#1F2937",
-      navLogoSrc: "./assets/openque-logo-dark-1200px-master-msxi4ztp-zo9g.png",
+      navLogoSrc: "/assets/openque-logo-dark-1200px-master-msxi4ztp-zo9g.png",
       navBurgerStyle: "position:relative;display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0 10px;border-radius:999px;border:none;background:none;cursor:pointer",
       navBurgerBar1: "display:block;height:2px;width:100%;border-radius:2px;background:#1F2937;transition:transform 200ms ease;transform:" + (this.state.menu === "nav" ? "translateY(3.5px) rotate(45deg)" : "none"),
       navBurgerBar2: "display:block;height:2px;width:100%;border-radius:2px;background:#1F2937;transition:transform 200ms ease;transform:" + (this.state.menu === "nav" ? "translateY(-3.5px) rotate(-45deg)" : "none"),
