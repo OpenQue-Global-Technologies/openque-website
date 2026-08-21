@@ -18,7 +18,8 @@
   * { box-sizing:border-box; }
   a { color:#074FF8; text-decoration:none; }
   a:hover { color:#4171F0; }
-  ::selection { background:#FFFFFF; }
+  ::selection { background:rgba(7, 79, 248, 0.2); }
+  ::-moz-selection { background:rgba(7, 79, 248, 0.2); }
   @keyframes oq-fade { from { opacity:0; transform:translateY(-6px);} to { opacity:1; transform:translateY(0);} }
   @keyframes oq-fade-out { from { opacity:1; transform:translateY(0);} to { opacity:0; transform:translateY(-6px);} }
   @keyframes oq-toast-in { from { opacity:0; transform:translateX(-50%) translateY(-6px);} to { opacity:1; transform:translateX(-50%) translateY(0);} }
@@ -541,7 +542,7 @@
     justify-content: flex-end;
     padding-right: clamp(24px, 6vw, 96px);
     overflow: hidden;
-    background: url("./assets/home-3a-showcase-background-msz2xlgc-c24h.png") center / cover no-repeat;
+    background: url("./assets/home-3a-showcase-background.webp") center / cover no-repeat;
     border-color: #ffffff;
   }
   #home-3-showcase-overlay {
