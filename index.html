@@ -48,12 +48,215 @@
     #home-showcase-header { margin-bottom:32px !important; padding-top: 32px !important; }
     #how-story-grid { grid-template-columns:1fr !important; }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 649px) {
     #home-showcase-header { padding-top: 32px !important; }
   }
 
-  /* Mobile-specific Header & Page Fixes (<= 767px) */
-  @media (max-width: 767px) {
+  /* Tablet-specific Footer CTA Alignment & Padding (650px - 900px) */
+  @media (min-width: 650px) and (max-width: 900px) {
+    #footer-cta-text-block {
+      height: auto !important;
+      min-height: auto !important;
+      flex: 0 1 auto !important;
+    }
+    footer > div:nth-of-type(1) {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
+      text-align: center !important;
+    }
+    footer > div:nth-of-type(1) > div:nth-of-type(1) {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
+    }
+    footer > div:nth-of-type(1) > div {
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+    footer > div:nth-of-type(1) > div > div {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+    footer > div:nth-of-type(1) h2,
+    footer > div:nth-of-type(1) p {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    footer > div:nth-of-type(1) img {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      display: block !important;
+    }
+    footer > div:nth-of-type(1) > div > div:nth-child(2) {
+      flex-direction: row !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    /* Tablet Footer Main Content Center Alignment */
+    #footer-main-content,
+    footer > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) {
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+    #footer-main-content > div:nth-of-type(1) {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      max-width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      height: auto !important;
+      min-height: auto !important;
+      flex: 0 1 auto !important;
+    }
+    #footer-main-content h3,
+    #footer-main-content p {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    #footer-main-content > div:nth-of-type(1) > div {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      justify-content: center !important;
+    }
+    #footer-main-content > div:nth-of-type(2) {
+      justify-content: center !important;
+      text-align: center !important;
+      width: 100% !important;
+    }
+    #footer-main-content > div:nth-of-type(2) > div {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+    #footer-main-content > div:nth-of-type(2) > div > div {
+      justify-content: center !important;
+    }
+
+    /* Tablet Home Hero Section Center & Middle Alignment (650px - 900px) */
+    #home-3-showcase-bg {
+      transform: translateX(-28px) !important;
+    }
+    #home-hero-section {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 100vh !important;
+      min-height: 100svh !important;
+    }
+    #home-hero-content {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding-top: 60px !important;
+      padding-bottom: 60px !important;
+      margin: auto !important;
+    }
+    #home-hero-badge {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    #home-hero-h1 {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    #home-hero-sub {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    #home-hero-ctas {
+      justify-content: center !important;
+      align-items: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    #home-3-showcase-quote {
+      font-size: 16px !important;
+      width: fit-content !important;
+      height: fit-content !important;
+      max-width: fit-content !important;
+      padding-left: 28px !important;
+      transform: translateX(-48px) !important;
+    }
+    #home-3-showcase-quote > span:nth-of-type(1) {
+      font-size: 12px !important;
+      width: fit-content !important;
+      height: fit-content !important;
+      max-width: fit-content !important;
+      padding-left: 16px !important;
+    }
+  }
+
+  /* Desktop Home Hero Section Center & Middle Alignment (>= 901px) */
+  @media (min-width: 901px) {
+    #home-hero-section {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 100vh !important;
+      min-height: 100svh !important;
+    }
+    #home-hero-content {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding-top: 60px !important;
+      padding-bottom: 60px !important;
+      margin: auto !important;
+    }
+    #home-hero-badge {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    #home-hero-h1 {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    #home-hero-sub {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    #home-hero-ctas {
+      justify-content: center !important;
+      align-items: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    #home-3-showcase-quote {
+      font-size: 16px !important;
+      width: fit-content !important;
+      height: fit-content !important;
+      max-width: fit-content !important;
+    }
+    #home-3-showcase-quote > span:nth-of-type(1),
+    #home-3-showcase-quote span {
+      padding-right: 48px !important;
+    }
+  }
+
+  /* Mobile-specific Header & Page Fixes (<= 649px) */
+  @media (max-width: 649px) {
     #site-header {
       position: fixed !important;
       top: 10px !important;
@@ -71,6 +274,7 @@
     #nav-brand {
       display: flex !important;
       align-items: center !important;
+      justify-content: center !important;
       gap: 8px !important;
       min-height: 38px !important;
       text-decoration: none !important;
@@ -81,13 +285,15 @@
       min-width: 28px !important;
       min-height: 28px !important;
       object-fit: contain !important;
+      align-self: center !important;
     }
     #nav-brand-text,
     #nav-brand-text > span {
-      font-size: 18px !important;
+      font-size: 24px !important;
       line-height: 1.1 !important;
       letter-spacing: -0.01em !important;
-      padding: 0 !important;
+      padding-bottom: 4px !important;
+      align-self: center !important;
     }
     #nav-burger-btn {
       width: 44px !important;
@@ -253,24 +459,30 @@
       min-height: 100vh !important;
       min-height: 100svh !important;
       display: flex !important;
-      align-items: flex-end !important;
+      align-items: center !important;
       justify-content: center !important;
     }
     #home-hero-content {
-      padding: 84px 20px 48px !important;
+      padding: 80px 20px 40px !important;
       box-sizing: border-box !important;
       width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
       text-align: center !important;
     }
     #home-hero-badge {
       font-size: 11px !important;
       padding: 5px 12px !important;
       letter-spacing: 0.08em !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
     #home-hero-h1 {
       font-size: clamp(28px, 6.8vw, 34px) !important;
       line-height: 1.15 !important;
-      margin: 16px 0 14px !important;
+      margin: 16px auto 14px !important;
       text-align: center !important;
     }
     #home-hero-sub {
@@ -278,6 +490,11 @@
       line-height: 1.6 !important;
       margin: 0 auto 28px !important;
       text-align: center !important;
+    }
+    #home-hero-ctas {
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
     }
 
     /* Home Showcase Eyebrow Mobile Bottom Padding */
@@ -412,7 +629,7 @@
   }
 
   /* Mobile Story/Timeline Section Redesign (Matches reference layout exactly) */
-  @media (max-width: 768px) {
+  @media (max-width: 649px) {
     #home-3-showcase-bg {
       height: 640px !important;
       min-height: 580px !important;
@@ -746,8 +963,8 @@
 
 
 
-  <section data-reveal style="{{ revealStyle }};padding:120px 0 0;background:#FFF9ED">
-    <div style="max-width: 1080px; margin: 0 auto; padding: 0 32px; padding-top: 16px; padding-bottom: 16px; background-color: #FFF9ED">
+  <section data-reveal style="{{ revealStyle }};padding:120px 0 0;background:#ffffff">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 0 32px; padding-top: 16px; padding-bottom: 16px; background-color: #ffffff">
       <div style="max-width:640px;margin:0 auto 48px;text-align:center">
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(30px,3.8vw,48px);line-height:1.1;margin:0 0 14px;color:#1F2937;letter-spacing:-.02em;text-wrap:balance">{{ tHomeH2_2 }}</h2>
         <p style="font-family:Inter,sans-serif;font-size:15px;line-height:1.7;color:#6B7280;margin:0 auto;max-width:520px;text-wrap:pretty">{{ tHomeP2 }}</p>
@@ -826,7 +1043,7 @@
     </div>
   </section>
 
-  <section data-reveal style="{{ revealStyle }};padding:120px 0;background:#F2F2F2">
+  <section data-reveal style="{{ revealStyle }};padding:120px 0;background:#FFFFFF">
     <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start">
       <div style="flex:1 1 380px;min-width:0;max-width:480px">
         <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1.08;margin:0 0 18px;color:#1F2937;letter-spacing:-.02em;text-wrap:balance">{{ tHomeH2_3 }}</h2>
@@ -1295,9 +1512,9 @@
     <div style="max-width:1200px;margin:0 auto;padding:0 24px">
       <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0 0 24px;color:#1F2937;letter-spacing:-.02em">{{ tContactTitle }}</h1>
       <div style="display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap">
-        <button onClick="{{ contactTabDemo }}" style="min-height:44px;padding:0 20px;border-radius:999px;border:1px solid rgba(31,41,55,.14);background:#fff;font-family:Inter,sans-serif;font-size:14px;font-weight:500;color:#1F2937;cursor:pointer" style-hover="border-color:#074FF8;color:#074FF8">{{ tContactDemoTab }}</button>
-        <button onClick="{{ contactTabGeneral }}" style="min-height:44px;padding:0 20px;border-radius:999px;border:1px solid rgba(31,41,55,.14);background:#fff;font-family:Inter,sans-serif;font-size:14px;font-weight:500;color:#1F2937;cursor:pointer" style-hover="border-color:#074FF8;color:#074FF8">{{ tContactGeneralTab }}</button>
-        <button onClick="{{ contactTabGrievance }}" style="min-height:44px;padding:0 20px;border-radius:999px;border:1px solid rgba(31,41,55,.14);background:#fff;font-family:Inter,sans-serif;font-size:14px;font-weight:500;color:#1F2937;cursor:pointer" style-hover="border-color:#074FF8;color:#074FF8">{{ tContactGrievanceTab }}</button>
+        <button onClick="{{ contactTabDemo }}" style="min-height:44px;padding:0 20px;border-radius:999px;border:{{ contactDemoBW }} solid {{ contactDemoBorder }};background:#FFFFFF;font-family:Inter,sans-serif;font-size:14px;font-weight:{{ contactDemoWeight }};color:{{ contactDemoColor }};cursor:pointer" style-hover="border-color:#074FF8;color:#074FF8">{{ tContactDemoTab }}</button>
+        <button onClick="{{ contactTabGeneral }}" style="min-height:44px;padding:0 20px;border-radius:999px;border:{{ contactGeneralBW }} solid {{ contactGeneralBorder }};background:#FFFFFF;font-family:Inter,sans-serif;font-size:14px;font-weight:{{ contactGeneralWeight }};color:{{ contactGeneralColor }};cursor:pointer" style-hover="border-color:#074FF8;color:#074FF8">{{ tContactGeneralTab }}</button>
+        <button onClick="{{ contactTabGrievance }}" style="min-height:44px;padding:0 20px;border-radius:999px;border:{{ contactGrievanceBW }} solid {{ contactGrievanceBorder }};background:#FFFFFF;font-family:Inter,sans-serif;font-size:14px;font-weight:{{ contactGrievanceWeight }};color:{{ contactGrievanceColor }};cursor:pointer" style-hover="border-color:#074FF8;color:#074FF8">{{ tContactGrievanceTab }}</button>
       </div>
 
       <div id="contact-grid" style="border-radius:20px;overflow:hidden;display:grid;grid-template-columns:minmax(260px,380px) 1fr;background:#fff;margin-bottom:48px;box-shadow:0 4px 20px rgba(31,41,55,.08)">
@@ -1485,9 +1702,9 @@
 <footer style="background:#0B1120">
   <div style="background:#074FF8;padding:88px 0">
     <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:40px">
-      <div style="flex:1 1 420px;min-width:0">
-        <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(38px,5.4vw,64px);line-height:1.02;margin:0 0 14px;color:#fff;letter-spacing:-.02em">{{ tFooterNewsHead2 }}</h2>
-        <p style="font-family:Inter,sans-serif;font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:420px;text-wrap:pretty">{{ tFooterCtaSub }}</p>
+      <div id="footer-cta-text-block" style="flex:1 1 420px;min-width:0">
+        <h2 id="footer-cta-heading" style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(38px,5.4vw,64px);line-height:1.02;margin:0 0 14px;color:#fff;letter-spacing:-.02em">{{ tFooterNewsHead2 }}</h2>
+        <p id="footer-cta-subtext" style="font-family:Inter,sans-serif;font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:420px;text-wrap:pretty">{{ tFooterCtaSub }}</p>
       </div>
       <div style="flex:0 0 auto;display:flex;align-items:center;gap:22px;padding:22px;border:1px solid rgba(255,255,255,.35);border-radius:14px;background:rgba(11,17,32,.14)">
         <div style="width: 108px; height: 108px; flex: 0 0 108px; background: url(&quot;./assets/footer-qr-code.webp&quot;) center / cover no-repeat; border-radius: 8px"></div>
@@ -1501,7 +1718,7 @@
 
   <div style="position:relative;overflow:hidden;padding:88px 0 0">
     <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 32px">
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:56px;margin-bottom:96px">
+      <div id="footer-main-content" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:56px;margin-bottom:96px">
         <div style="flex:1 1 380px;min-width:0;max-width:520px">
           <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.2;margin:0 0 12px;color:#fff;letter-spacing:-.01em">{{ tFooterHead }}</h3>
           <p style="font-family:Inter,sans-serif;font-size:14px;line-height:1.6;color:rgba(255,255,255,.65);margin:0 0 26px">{{ tFooterNewsSub }}</p>
@@ -1642,7 +1859,7 @@ const T = {
     heroH1:"One system. Two experiences.",
     heroSub:"For patients, a transparent, passive way to track their turn. For hospitals, an adaptive tool that scales from a solo doctor to a full team. Both run on the same live data",
     footerTag:"Queue infrastructure for Indian OPDs.",
-    footerNewsHead2:"Ready to skip the wait?", footerCtaSub:"We'll tell you the moment OpenQue opens near you.",
+    footerNewsHead2:"Ready to skip the wait?", footerCtaSub:"We'll tell you the moment OpenQue is available near you.",
     footerHead:"A queue everyone can see, with OpenQue.",
     footerProduct:"Product", footerCompany:"Company", footerLegal:"Legal", footerHospitalLogin:"Hospital Login",
     footerPatients:"For Patients", footerHospitals:"For Hospitals & Clinics", footerHow:"How It Works",
@@ -1774,7 +1991,7 @@ const T = {
     heroH1:"ஒரே முறைமை. இரு அனுபவங்கள்.",
     heroSub:"நோயாளிகளுக்கு, தங்கள் முறையைக் கண்காணிக்க ஒரு தெளிவான, செயலற்ற வழி. மருத்துவமனைகளுக்கு, தனி மருத்துவரிலிருந்து முழு அணி வரை அளவிடக்கூடிய ஒரு தகவமைப்புக் கருவி. இரண்டும் ஒரே நேரடி தரவில் இயங்குகின்றன.",
     footerTag:"இந்திய OPD-களுக்கான வரிசை உள்கட்டமைப்பு.",
-    footerNewsHead2:"காத்திருப்பைத் தவிர்க்க தயாரா?", footerCtaSub:"OpenQue உங்கள் அருகில் திறக்கும் தருணத்தை உங்களுக்குத் தெரிவிப்போம்.",
+    footerNewsHead2:"காத்திருப்பைத் தவிர்க்க தயாரா?", footerCtaSub:"OpenQue உங்கள் அருகில் கிடைக்கும் தருணத்தை உங்களுக்குத் தெரிவிப்போம்.",
     footerHead:"அனைவரும் பார்க்கக்கூடிய வரிசை, ஓபன்க்யூ உடன்.",
     footerProduct:"தயாரிப்பு", footerCompany:"நிறுவனம்", footerLegal:"சட்டம்", footerHospitalLogin:"மருத்துவமனை உள்நுழைவு",
     footerPatients:"நோயாளிகளுக்கு", footerHospitals:"மருத்துவமனைகள் & கிளினிக்குகளுக்கு", footerHow:"எப்படி செயல்படுகிறது",
@@ -2292,6 +2509,18 @@ class Component extends DCLogic {
       contactDemo: this.state.contactTab === "demo",
       contactGeneral: this.state.contactTab === "general",
       contactGrievance: this.state.contactTab === "grievance",
+      contactDemoBorder: this.state.contactTab === "demo" ? "#074FF8" : "rgba(31,41,55,.14)",
+      contactDemoBW: this.state.contactTab === "demo" ? "2px" : "1px",
+      contactDemoColor: this.state.contactTab === "demo" ? "#074FF8" : "#1F2937",
+      contactDemoWeight: this.state.contactTab === "demo" ? "600" : "500",
+      contactGeneralBorder: this.state.contactTab === "general" ? "#074FF8" : "rgba(31,41,55,.14)",
+      contactGeneralBW: this.state.contactTab === "general" ? "2px" : "1px",
+      contactGeneralColor: this.state.contactTab === "general" ? "#074FF8" : "#1F2937",
+      contactGeneralWeight: this.state.contactTab === "general" ? "600" : "500",
+      contactGrievanceBorder: this.state.contactTab === "grievance" ? "#074FF8" : "rgba(31,41,55,.14)",
+      contactGrievanceBW: this.state.contactTab === "grievance" ? "2px" : "1px",
+      contactGrievanceColor: this.state.contactTab === "grievance" ? "#074FF8" : "#1F2937",
+      contactGrievanceWeight: this.state.contactTab === "grievance" ? "600" : "500",
       contactTabDemo: () => this.setState({ contactTab: "demo" }),
       contactTabGeneral: () => this.setState({ contactTab: "general" }),
       contactTabGrievance: () => this.setState({ contactTab: "grievance" }),
@@ -2316,11 +2545,28 @@ class Component extends DCLogic {
       e_newsletter_email: this.state.touched.newsletter_email && this.state.errors.newsletter_email,
       toastNewsletter: e => {
         e.preventDefault();
-        const val = this.state.values.newsletter_email || "";
+        const val = (this.state.values.newsletter_email || "").trim();
         const err = this.validateField("newsletter_email", val);
         this.setState(s => ({ errors: Object.assign({}, s.errors, { newsletter_email: err }), touched: Object.assign({}, s.touched, { newsletter_email: true }) }));
         if (err) return;
-        this.showToast("success", "Success", "Thanks for your interest — we'll be in touch.");
+        fetch("https://formspree.io/f/mnpawzqy", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ email: val })
+        }).then(res => {
+          if (res.ok) {
+            this.showToast("success", "Success", "Thanks for your interest — we'll be in touch.");
+            this.setState(s => ({
+              values: Object.assign({}, s.values, { newsletter_email: "" }),
+              errors: Object.assign({}, s.errors, { newsletter_email: null }),
+              touched: Object.assign({}, s.touched, { newsletter_email: false })
+            }));
+          } else {
+            this.showToast("error", "Error", "Failed to subscribe. Please try again.");
+          }
+        }).catch(() => {
+          this.showToast("error", "Error", "Failed to subscribe. Please check your connection.");
+        });
       },
       onFieldBlur: e => this.onFieldBlur(e),
       onFieldFocus: e => this.onFieldFocus(e),
@@ -2358,30 +2604,82 @@ class Component extends DCLogic {
       c_grievance_description: this.fieldColor("grievance_description"), e_grievance_description: this.state.touched.grievance_description && this.state.errors.grievance_description,
       submitDemo: e => {
         e.preventDefault();
-        const r = this.validateForm(e.target, ["demo_hospitalName", "demo_city", "demo_doctorCount", "demo_contactPerson", "demo_phone", "demo_email"]);
+        const form = e.target;
+        const r = this.validateForm(form, ["demo_hospitalName", "demo_city", "demo_doctorCount", "demo_contactPerson", "demo_phone", "demo_email"]);
         this.setState(s => ({ errors: Object.assign({}, s.errors, r.errors), touched: Object.assign({}, s.touched, r.touched) }));
         if (!r.valid) return;
-        this.setState({ demoSent: true }); setTimeout(() => this.setState({ demoSent: false }), 8000);
-        this.showToast("success", "Success", "Your demo request was sent.");
-        e.target.reset(); this.setState({ errors: {}, touched: {} });
+        const hospital_name = (form.elements.namedItem("demo_hospitalName") || {}).value || "";
+        const city = (form.elements.namedItem("demo_city") || {}).value || "";
+        const doctor_count = (form.elements.namedItem("demo_doctorCount") || {}).value || "";
+        const contact_person = (form.elements.namedItem("demo_contactPerson") || {}).value || "";
+        const rawPhone = (form.elements.namedItem("demo_phone") || {}).value || "";
+        const phone = rawPhone ? "+91 " + rawPhone : "";
+        const email = (form.elements.namedItem("demo_email") || {}).value || "";
+        fetch("https://formspree.io/f/xjyblrnq", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ hospital_name, city, doctor_count, contact_person, phone, email })
+        }).then(res => {
+          if (res.ok) {
+            this.setState({ demoSent: true }); setTimeout(() => this.setState({ demoSent: false }), 8000);
+            this.showToast("success", "Success", "Your demo request was sent.");
+            form.reset(); this.setState({ errors: {}, touched: {} });
+          } else {
+            this.showToast("error", "Error", "Failed to submit demo request. Please try again.");
+          }
+        }).catch(() => {
+          this.showToast("error", "Error", "Failed to submit demo request. Please check your connection.");
+        });
       },
       submitGeneral: e => {
         e.preventDefault();
-        const r = this.validateForm(e.target, ["general_name", "general_email", "general_message"]);
+        const form = e.target;
+        const r = this.validateForm(form, ["general_name", "general_email", "general_message"]);
         this.setState(s => ({ errors: Object.assign({}, s.errors, r.errors), touched: Object.assign({}, s.touched, r.touched) }));
         if (!r.valid) return;
-        this.setState({ generalSent: true }); setTimeout(() => this.setState({ generalSent: false }), 8000);
-        this.showToast("success", "Success", "Your message was sent.");
-        e.target.reset(); this.setState({ errors: {}, touched: {}, lens: {} });
+        const name = (form.elements.namedItem("general_name") || {}).value || "";
+        const email = (form.elements.namedItem("general_email") || {}).value || "";
+        const message = (form.elements.namedItem("general_message") || {}).value || "";
+        fetch("https://formspree.io/f/mppablzj", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ name, email, message })
+        }).then(res => {
+          if (res.ok) {
+            this.setState({ generalSent: true }); setTimeout(() => this.setState({ generalSent: false }), 8000);
+            this.showToast("success", "Success", "Your message was sent.");
+            form.reset(); this.setState({ errors: {}, touched: {}, lens: {} });
+          } else {
+            this.showToast("error", "Error", "Failed to send message. Please try again.");
+          }
+        }).catch(() => {
+          this.showToast("error", "Error", "Failed to send message. Please check your connection.");
+        });
       },
       submitGrievance: e => {
         e.preventDefault();
-        const r = this.validateForm(e.target, ["grievance_complaintType", "grievance_contact", "grievance_description"]);
+        const form = e.target;
+        const r = this.validateForm(form, ["grievance_complaintType", "grievance_contact", "grievance_description"]);
         this.setState(s => ({ errors: Object.assign({}, s.errors, r.errors), touched: Object.assign({}, s.touched, r.touched) }));
         if (!r.valid) return;
-        this.setState({ grievanceSent: true }); setTimeout(() => this.setState({ grievanceSent: false }), 8000);
-        this.showToast("success", "Success", "Your grievance was submitted.");
-        e.target.reset(); this.setState({ errors: {}, touched: {}, lens: {} });
+        const complaint_type = (form.elements.namedItem("grievance_complaintType") || {}).value || "";
+        const contact = (form.elements.namedItem("grievance_contact") || {}).value || "";
+        const description = (form.elements.namedItem("grievance_description") || {}).value || "";
+        fetch("https://formspree.io/f/mwleyqka", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ complaint_type, contact, description })
+        }).then(res => {
+          if (res.ok) {
+            this.setState({ grievanceSent: true }); setTimeout(() => this.setState({ grievanceSent: false }), 8000);
+            this.showToast("success", "Success", "Your grievance was submitted.");
+            form.reset(); this.setState({ errors: {}, touched: {}, lens: {} });
+          } else {
+            this.showToast("error", "Error", "Failed to submit grievance. Please try again.");
+          }
+        }).catch(() => {
+          this.showToast("error", "Error", "Failed to submit grievance. Please check your connection.");
+        });
       },
 
     };

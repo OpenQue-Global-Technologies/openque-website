@@ -1,0 +1,8 @@
+{
+  "name": "Healthcare Web App",
+  "description": "Medical and Healthcare Website",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
