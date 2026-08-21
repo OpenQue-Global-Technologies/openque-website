@@ -131,6 +131,7 @@
   `;
   var FULL_PAGE_CSS = "html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}";
   function rootNameForDocument(doc, loc) {
+    if (doc.querySelector("x-dc")) return "Root";
     let bootPath = loc.pathname || "";
     if (!/\.dc\.html?$/i.test(safeDecode(bootPath))) {
       try {
@@ -155,7 +156,7 @@
     runtime.markFetched(rootName);
     runtime.setRootName(rootName);
     runtime.adoptParsed(rootName, parsed);
-    if (!window.__resources) {
+    if (!window.__resources && !parsed?.template) {
       fetch(location.href).then((res) => res.ok ? res.text() : "").then((t) => {
         const raw = t ? parseDcText(t) : null;
         if (raw?.template) runtime.updateHtml(rootName, raw.template);

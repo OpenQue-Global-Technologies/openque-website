@@ -2227,10 +2227,24 @@ class Component extends DCLogic {
     return { errors, touched, valid: Object.keys(errors).length === 0 };
   }
   state = {
-    route: "", lang: "en", menu: null, kbdField: null,
+    route: (() => {
+      if (typeof window === "undefined") return "";
+      if (window.location.hash && window.location.hash.startsWith("#/")) {
+        return window.location.hash.replace(/^#\/?/, "");
+      }
+      return window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
+    })(),
+    lang: "en", menu: null, kbdField: null,
     cookieBannerDismissed: (() => { try { return localStorage.getItem("oq_cookie_ack") === "1"; } catch (e) { return false; } })(),
     faqTab: "Patient", faqOpen: 0, homeFaqOpen: 0,
-    contactTab: "demo", demoSent: false, generalSent: false, grievanceSent: false,
+    contactTab: (() => {
+      if (typeof window === "undefined") return "demo";
+      const p = window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
+      const q = window.location.search || "";
+      if (p === "contact" && q.indexOf("intent=demo") > -1) return "demo";
+      return "demo";
+    })(),
+    demoSent: false, generalSent: false, grievanceSent: false,
     errors: {}, touched: {}, lens: {}, values: {}, toast: null,
     media: {}
   };
